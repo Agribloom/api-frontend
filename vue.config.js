@@ -31,7 +31,6 @@ const paths = [
 ];
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   publicPath:
     process.env.NODE_ENV === "production"
       ? process.env.VUE_APP_AXIOS_BASE_URL
