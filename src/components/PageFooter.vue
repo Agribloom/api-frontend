@@ -41,7 +41,7 @@
                     <router-link :to="{name: 'terms-of-sponsorship'}">Terms of Sponsorship</router-link>
                   </li>
                    <li class="nav-list-group-item">
-                    <router-link to="/sitemap.xml">Site Map</router-link>
+                    <router-link :to="{name: 'sitemap'}">Site Map</router-link>
                   </li>
                 </ul>
               </div>
