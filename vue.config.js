@@ -22,7 +22,8 @@ const paths = [
     path: "/sign-in",
     lastmod: new Date().toISOString().slice(0, 10),
     priority: "0.8",
-  }, {
+  },
+  {
     path: "/sign-up",
     lastmod: new Date().toISOString().slice(0, 10),
     priority: "0.8",
@@ -30,6 +31,11 @@ const paths = [
 ];
 
 module.exports = {
+  mode: process.env.NODE_ENV,
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? process.env.VUE_APP_AXIOS_BASE_URL
+      : "/",
   configureWebpack: {
     plugins: [
       new SitemapPlugin("https://agribloom.com", paths, {
