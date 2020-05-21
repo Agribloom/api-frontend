@@ -6,12 +6,67 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <link href="/assets/favicons/favicon.png" rel="shortcut icon"/>
+    <link href="<%= BASE_URL %>assets/css/animate.css" rel="stylesheet"/>
+    <link href="<%= BASE_URL %>assets/css/aos.css" rel="stylesheet"/>
+    <link href="<%= BASE_URL %>assets/css/fontawesome.css" rel="stylesheet"/>
+    <link href="<%= BASE_URL %>assets/css/lightcase.css" rel="stylesheet"/>
+    <link href="<%= BASE_URL %>assets/css/swiper.min.css" rel="stylesheet"/>
+
+    <style>
+        body:not([class~="preloading"]) #app-preloader {
+            opacity: 0;
+            z-index: -1;
+        }
+
+        body.not-preloading #app-preloader {
+            visibility: hidden;
+            display: none;
+        }
+
+        body.preloading {
+            overflow: hidden;
+        }
+
+        body.preloading #app-preloader {
+            opacity: 1;
+            z-index: 50000;
+        }
+
+        #app-preloader {
+            background: rgb(255, 255, 255);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: all .235s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #app-preloader span {
+            position: fixed;
+            top: 60%;
+            left: 10%;
+            right: 10%;
+            width: 80%;
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(151, 151, 151);
+        }
+    </style>
   </head>
-  <body>
+  <body class="preloading">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <div id="app-preloader">
+      <i class="la swiper-lazy-preloader"></i>
+    </div>
   </body>
 </html>

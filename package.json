@@ -1,5 +1,5 @@
 {
-  "name": "agribloom",
+  "name": "agribloom-frontend-api",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,32 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "animate.css": "^4.1.0",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "core-js": "^3.6.4",
+    "countup.js": "^2.0.5",
+    "jquery": "^3.5.1",
+    "moment": "^2.25.3",
+    "numeral": "^2.0.6",
+    "popper.js": "^1.16.1",
     "register-service-worker": "^1.7.1",
+    "sitemap-webpack-plugin": "^0.8.0",
+    "swiper": "^5.4.0",
     "vue": "^2.6.11",
+    "vue-analytics": "^5.22.1",
+    "vue-aos": "^1.0.1",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-cookie-law": "^1.13.3",
+    "vue-countup-v2": "^4.0.0",
+    "vue-faq-accordion": "^1.5.0",
+    "vue-paystack": "^2.0.2",
     "vue-router": "^3.1.6",
+    "vue-spinner": "^1.0.3",
+    "vue-tabs-component": "^1.5.0",
+    "vue-tel-input": "^4.4.0",
+    "vue-toastr": "^2.1.2",
+    "vue-wow": "^1.2.0",
     "vuex": "^3.1.3"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
-# agribloom
+# agribloom-fe | Agribloom-Frontend
 
-## Project setup
+## Agribloom Front-end API
+### Project setup
 ```
 yarn install
 ```
