@@ -102,7 +102,7 @@ const routes = [
             { name: "twitter:card", content: "summary" },
             {
               name: "twitter:site",
-              content: `https://www.agribloom.farm/about`,
+              content: `https://agribloom.farm/about`,
             },
             {
               name: "twitter:title",
@@ -118,14 +118,6 @@ const routes = [
               name: "twitter:image:src",
               content:
                 "https://pbs.twimg.com/profile_images/1195440549853044736/4TUVAXjN_400x400.jpg",
-            },
-            {
-              link: [
-                {
-                  rel: "canonical",
-                  href: "https://www.my-site.com/my-special-page",
-                },
-              ],
             },
           ],
         },
@@ -167,6 +159,14 @@ const routes = [
               property: "og:description",
               content: "Farms",
             },
+            {
+              link: [
+                {
+                  rel: "canonical",
+                  href: "https://www.agribloom.farm/farms",
+                },
+              ],
+            },
           ],
         },
       },
@@ -188,6 +188,14 @@ const routes = [
             {
               property: "og:description",
               content: "Farm",
+            },
+            {
+              link: [
+                {
+                  rel: "canonical",
+                  href: "https://www.agribloom.farm/farm",
+                },
+              ],
             },
           ],
         },
@@ -295,11 +303,11 @@ const routes = [
           tags: [
             {
               name: "description",
-              content: "Career",
+              content: "Join Us",
             },
             {
               property: "og:description",
-              content: "Career",
+              content: "Interested in joining us? Apply today",
             },
           ],
         },
@@ -348,7 +356,7 @@ const routes = [
             },
             {
               property: "og:description",
-              content: "Terms of Sponsorship",
+              content: "Our terms of Sponsorship",
             },
           ],
         },
@@ -398,6 +406,10 @@ const routes = [
         },
       },
     ],
+  },
+  {
+    path: '/sitemap',
+    redirect: '/sitemap.xml'
   },
   {
     path: "/404NotFound",

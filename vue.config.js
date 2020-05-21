@@ -3,8 +3,29 @@ const paths = [
   {
     path: "/",
     lastmod: new Date().toISOString().slice(0, 10),
-    priority: "0.8",
+  },
+  {
+    path: "/farms",
+    lastmod: new Date().toISOString().slice(0, 10),
+    priority: "1",
     changefreq: "monthly",
+  },
+  {
+    path: "/about",
+    lastmod: new Date().toISOString().slice(0, 10),
+  },
+  {
+    path: "/contact",
+    lastmod: new Date().toISOString().slice(0, 10),
+  },
+  {
+    path: "/sign-in",
+    lastmod: new Date().toISOString().slice(0, 10),
+    priority: "0.8",
+  }, {
+    path: "/sign-up",
+    lastmod: new Date().toISOString().slice(0, 10),
+    priority: "0.8",
   },
 ];
 

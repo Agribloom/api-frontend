@@ -17,30 +17,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-6 col-12">
-              <div class="bottom-item">
-                <h4>Follow Us</h4>
-                <div class="d-flex">
-                  <ul class="right mt-4">
-                    <li>
-                      <a class="facebook" href="http://www.facebook.com/agribloom">
-                        <i class="fab fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="twitter" href="http://www.twitter.com/agribloom">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="linkedin" href="http://www.linkedin.com/company/agribloom">
-                        <i class="fab fa-linkedin-in"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            
             <div class="col-xl-4 col-lg-6 col-12">
               <div class="bottom-item">
                 <h4>Navigation</h4>
@@ -67,6 +44,31 @@
                     <router-link to="/sitemap.xml">Site Map</router-link>
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-12">
+              <div class="bottom-item">
+                <h4>Follow Us</h4>
+                <div class="d-flex">
+                  <ul class="right mt-4">
+                    <li>
+                      <a class="facebook" href="http://www.facebook.com/agribloom">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="twitter" href="http://www.twitter.com/agribloom">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="linkedin" href="http://www.linkedin.com/company/agribloom">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
