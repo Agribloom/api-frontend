@@ -43,7 +43,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "Account-Investment-History",
+  name: "Account-Investment",
   data() {
     return {
       investments: []

@@ -2,18 +2,13 @@
   <div class="account-card shade">
     <div class="card-header">
       <div>{{ title }}</div>
-      <div>
-        <span title="Refresh data" class="cursor" @click="refreshDataTable">
-          <i class="la la-refresh"></i>
-        </span>
-      </div>
     </div>
 
     <div class="card-body">
       <template>
         <alert-item
           fontIcon="las la-piggy-bank"
-          v-if="hasInvestment"
+          v-if="!hasInvestment"
           :messages="'You have not made any Investments yet'"
           :title="'Nothing Found!'"
         ></alert-item>
@@ -21,7 +16,7 @@
           v-else
           :editable="editable"
           :controls="controls"
-          :data="investments"
+          :data="investments.results"
           :fields="fields"
           :pagination="pagination"
           sort_key="transaction_id"
@@ -33,61 +28,56 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import mixin from '@/mixin'
+import { mapGetters } from "vuex";
+import mixin from "@/mixin";
 
 export default {
-    name: 'FarmInvestments',
-    data () {
-        return {
-            title: 'Farm Investments',
-            data: [],
-            fields: [
-                {
-                    name: 'transaction_id',
-                    label: 'ID',
-                    sortable: true,
-                    type: 'string'
-                },
-                {
-                    name: 'units',
-                    label: 'Units',
-                    sortable: true,
-                    type: 'string'
-                },
-                {
-                    name: 'amount',
-                    label: 'Amount',
-                    sortable: true,
-                    type: 'number'
-                },
-                {
-                    name: 'created',
-                    label: 'Date',
-                    sortable: true,
-                    type: 'date'
-                }
-            ],
-            pagination: true,
-            controls: true,
-            editable: false
+  name: "FarmInvestments",
+  data() {
+    return {
+      title: "Farm Investments",
+      fields: [
+        {
+          name: "transaction_id",
+          label: "ID",
+          sortable: true,
+          type: "string"
+        },
+        {
+          name: "units",
+          label: "Units",
+          sortable: true,
+          type: "string"
+        },
+        {
+          name: "amount",
+          label: "Amount",
+          sortable: true,
+          type: "number"
+        },
+        {
+          name: "created",
+          label: "Date",
+          sortable: true,
+          type: "date"
         }
-    },
-    mixins: [mixin],
-    computed: {
-        ...mapGetters('user', {
-            investments: 'investments'
-        }),
-        hasInvestment () {
-            return this.investments !== undefined && !this.investments.length
-        }
-    },
-    methods: {
-        refreshDataTable () {
-            this.$refs['data-table'].refreshData()
-        }
+      ],
+      pagination: true,
+      controls: true,
+      editable: false
+    };
+  },
+  mixins: [mixin],
+  computed: {
+    ...mapGetters("user", {
+      investments: "allInvestments"
+    }),
+    hasInvestment() {
+      return this.investments !== undefined;
     }
-}
+  },
+  methods: {}
+};
 </script>
 
 <style lang="scss" scoped></style>

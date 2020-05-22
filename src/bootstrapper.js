@@ -19,3 +19,4 @@ window.axios = require("axios").default;
 
 // window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 window.axios.defaults.baseURL = process.env.VUE_APP_AXIOS_BASE_URL;
+window.axios.defaults.timeout = 10000;
