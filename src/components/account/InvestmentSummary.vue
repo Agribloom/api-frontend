@@ -15,17 +15,18 @@
                 </div>
             </div>
             <div class="facts">
-                <div class="fact-item">
-          <span>
-            <small class="unicode naira" title="highest"></small>
-            {{highest.amount | numerate}}
-          </span>Highest
+                <div class="fact-item"  v-if="highest!= undefined">
+                <span>
+                    <small class="unicode naira" title="highest"></small>
+                    {{highest.amount | numerate}}
+                </span>
+                    Highest
                 </div>
-                <div class="fact-item">
-          <span>
-            <small class="unicode naira" title="lowest"></small>
-            {{lowest.amount | numerate}}
-          </span>Least
+                <div class="fact-item"  v-if="lowest != undefined">
+                  <span>
+                    <small class="unicode naira" title="lowest"></small>
+                    {{lowest.amount | numerate}}
+                  </span>Least
                 </div>
             </div>
         </div>

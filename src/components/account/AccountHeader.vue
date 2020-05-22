@@ -42,20 +42,15 @@
           <div class="account-navbar-right">
             <ul class="account-navbar-link">
               <li class="account-navbar-link-item">
-                <router-link :to="{name: 'notification'}">
-                  <i class="la la-bell-o"></i>
-                  <span v-show="notificationCount" class="badge badge-primary">{{notificationCount}}</span>
+                <router-link :to="{name: 'notification'}" >
+                  <i class="la la-bell-o " style="font-size: 1.25em"></i>
+                  <span v-show="notificationCount"
+                        class="badge badge-primary">
+                    {{notificationCount}}
+                  </span>
                 </router-link>
               </li>
-              <li class="account-navbar-link-item">
-                <a
-                  @click.stop="$emit('refreshData')"
-                  class="cursor-pointer"
-                  title="refresh content"
-                >
-                  <i class="la la-refresh"></i>&nbsp;
-                </a>
-              </li>
+
               <li class="account-navbar-link-item">
                 <div @click.stop="signOut" class="cursor-pointer cbtn m-0 danger">Signout</div>
               </li>

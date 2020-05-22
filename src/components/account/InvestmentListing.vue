@@ -21,6 +21,7 @@
           :pagination="pagination"
           sort_key="transaction_id"
           ref="data-table"
+          :emptyErrorResponse="emptyErrorResponse"
         ></data-table>
       </template>
     </div>
@@ -69,6 +70,12 @@ export default {
   },
   mixins: [mixin],
   computed: {
+    emptyErrorResponse(){
+      return {
+        icon: 'la la-piggy-bank',
+        message: `You've not made any investments yet`
+      }
+    },
     ...mapGetters("user", {
       investments: "allInvestments"
     }),

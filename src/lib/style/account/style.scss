@@ -454,10 +454,10 @@ $background: lighten($dark, 75%);
               .account-navbar-link-item {
                 display: block;
                 font-size: 1em;
-                margin: auto;
                 padding: 4px 7px;
                 position: relative;
-
+                margin: auto auto auto 7px;
+  
                 .badge {
                   background: $primary;
                   border: $bdrs;

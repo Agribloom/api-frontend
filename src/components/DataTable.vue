@@ -2,7 +2,7 @@
     <div class="table-style">
         <div v-if="!hasError">
             <nomsg-spinner v-if="loading"/>
-            <div v-else>
+            <div v-else-if="hasData">
                 <!--            Table controls-->
                 <div class="table-controls" v-if="controls">
                     <div class="v-control m-2 table-search">
@@ -180,6 +180,16 @@
                     </div>
                 </nav>
             </div>
+            <div v-else>
+                <alert-item :fontIcon="emptyError.icon"
+                            :messages="emptyError.message"
+                            :title="emptyError.title"
+                >
+                </alert-item>
+            </div>
+        </div>
+        <div v-else>
+            Error
         </div>
     </div>
 </template>
@@ -196,6 +206,9 @@
             this.setSortOrder;
         },
         props: {
+            emptyErrorResponse: {
+                required: false
+            },
             api: {
                 type: String,
                 default: ""
@@ -227,7 +240,7 @@
         },
         data() {
             return {
-                loading: true,
+                loading: false,
                 tryAgain: false,
                 paginate: {
                     show: this.pagination,
@@ -261,6 +274,13 @@
             };
         },
         computed: {
+            emptyError() {
+                return Object.assign({
+                    icon: '',
+                    message: "No Data Found!",
+                    title: 'Empty Record'
+                }, this.emptyErrorResponse)
+            },
             dataLoading: {
                 set(value) {
                     this.loading = value;
@@ -297,6 +317,24 @@
                 } else {
                     this.$emit("onError", {message: "No field provided"});
                     // throw new Error("No field provided");
+                }
+            },
+            assertFieldData() {
+                /* Ensures that the expected row data matches that of the column */
+                if (this.rows && this.columns) {
+                    let columns = Object.keys(this.columns)
+                    let rows = Object.keys(this.rows)
+                    let assertion = {}
+                    rows.forEach(row => {
+                        columns.includes(row) ? assertion[row] = columns[row] : null
+                    })
+                    if (!assertion.length) {
+                        this.addError("Data mismatch! \nContact the system admin");
+                        this.rows = [];
+                    } else {
+                        this.rows = assertion;
+                    }
+
                 }
             },
             setSortOrder() {
@@ -375,33 +413,6 @@
                 this.setTo(filter);
                 return filter;
             },
-            assertFieldData() {
-                /* Ensures that the expected row data matches that of the column */
-                if (this.rows.length && this.columns.length) {
-                    let columns = [];
-                    // Get all column keys
-                    Object.keys(this.columns).forEach(key => {
-                        return columns.push(this.columns[key]["name"]);
-                        // rowData[this.column[key]]
-                    });
-                    let data = [];
-                    this.rows.forEach(row => {
-                        let b = {};
-                        let r = Object.keys(row);
-                        for (let i in r) {
-                            columns.includes(r[i]) ? (b[r[i]] = row[r[i]]) : 0;
-                        }
-                        data.push(b);
-                    });
-
-                    if (!data.length) {
-                        this.addError("Data mismatch! \nContact the system admin");
-                        this.rows = [];
-                    } else {
-                        this.rows = data;
-                    }
-                }
-            }
         },
         methods: {
             formatEntry: function (value, format, fieldName) {

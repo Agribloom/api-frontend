@@ -71,6 +71,9 @@ export default {
             user: 'data',
             auth: 'auth'
         }),
+      ...mapGetters({
+        state: 'getState'
+      }),
         globalErrors () {
             return this.$store.getters.getErrors
         },

@@ -37,19 +37,18 @@ const user = {
     },
     highestInvestment(state) {
       const investments = state.investments || [];
-      let highest = 0;
+      let highest = {amount:0};
       if (investments && investments.results) {
         highest = investments.results[0];
         investments.results.forEach((investment) => {
           highest = investment.amount > highest.amount ? investment : highest;
         });
       }
-
       return highest;
     },
     lowestInvestment(state) {
       const investments = state.investments || [];
-      let lowest = 0;
+      let lowest = {amount:0};
       if (investments && investments.results) {
         lowest = investments.results[0];
         investments.results.forEach((investment) => {

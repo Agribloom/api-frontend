@@ -8189,6 +8189,11 @@ vue-toastr@^2.1.2:
   resolved "https://registry.yarnpkg.com/vue-toastr/-/vue-toastr-2.1.2.tgz#5bcbef8f85f043ca4d411e19e402bb170259527a"
   integrity sha512-OomiRJ641K5Zl1/QEwUFg/lBcP7XeVKL044loVtBkGm9oXkm02h3dx13XNcbSXYL/hsqWPO/et5fB0ciU3oaCQ==
 
+vue-trend-chart@^0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/vue-trend-chart/-/vue-trend-chart-0.15.2.tgz#e80d5c150c6c862092a538a333d1e886920f7644"
+  integrity sha512-WsIbPNvG5gQKQClHQ0ZVtdMxM0fywqCpAOtCMPu7MVZoNoeujU4g+hc9hfQXQ7vKmq2caPOSztVDl9I16O3VNg==
+
 vue-wow@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vue-wow/-/vue-wow-1.2.0.tgz#3486172ee6bd3428c9e558c99f456c1c8e077a33"

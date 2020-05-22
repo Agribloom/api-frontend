@@ -30,6 +30,7 @@
                             :fields="fields"
                             :pagination="pagination"
                             ref="data-table"
+                            :emptyErrorResponse = "emptyErrorResponse"
                     ></data-table>
                 </div>
             </div>
@@ -90,6 +91,12 @@
             };
         },
         computed: {
+            emptyErrorResponse(){
+                return {
+                    icon: 'las la-exchange-alt',
+                    message: `Your transactions will show here`,
+                }
+            },
             ...mapGetters("user", {
                 transactions: "transactions",
                 user: "data"
