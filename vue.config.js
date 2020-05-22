@@ -31,10 +31,6 @@ const paths = [
 ];
 
 module.exports = {
-  publicPath:
-    process.env.NODE_ENV === "production"
-      ? process.env.VUE_APP_AXIOS_BASE_URL
-      : "/",
   configureWebpack: {
     plugins: [
       new SitemapPlugin("https://agribloom.com", paths, {
