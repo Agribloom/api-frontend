@@ -33,7 +33,7 @@ const paths = [
 module.exports = {
   configureWebpack: {
     plugins: [
-      new SitemapPlugin("https://agribloom.com", paths, {
+      new SitemapPlugin("https://agribloom.farm", paths, {
         filename: "sitemap.xml",
         lastmod: true,
         changefreq: "hourly",
