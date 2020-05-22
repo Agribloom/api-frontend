@@ -39,7 +39,7 @@ export default {
       fields: [
         {
           name: "transaction_id",
-          label: "ID",
+          label: "Reference ID",
           sortable: true,
           type: "string"
         },

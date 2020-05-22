@@ -249,14 +249,30 @@ $background: lighten($dark, 75%);
         -moz-border-radius: 4px;
         border-radius: 4px;
 
-        .small {
+        .summary {
           display: flex;
+          flex-wrap: wrap;
           justify-content: flex-end;
           font-weight: 300;
           font-size: 16px;
           color: #888888;
           line-height: 1.25;
-          padding: 30px;
+          padding: 7px;
+          text-align: right;
+          align-items: flex-end;
+          .chart{
+            min-height: 200px;
+          }
+          .value{
+            font:{
+              family: $font-family-head;
+              size: 3rem;
+              weight: 600
+            }
+            @media screen and (max-width){}
+            color: $primary;
+            display: block;
+          }
         }
       }
 

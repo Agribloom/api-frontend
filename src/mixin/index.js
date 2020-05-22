@@ -8,7 +8,7 @@ const mixin = {
         }
     },
     filters: {
-        getInitials (strArr) {
+        getInitials(strArr) {
             try {
                 let initials
                 initials = []
@@ -22,24 +22,26 @@ const mixin = {
                 console.error(e)
             }
         },
-        lowercase (str) {
+        lowercase(str) {
             return str.toLowerCase()
         },
-        capitalize (value) {
+        capitalize(value) {
             if (!value) return ''
             value.toString().toLowerCase()
             return value.charAt(0).toUpperCase() + value.slice(1)
         },
-        numerate (value) {
-            return numeral(value).format('0.0a')
+        numerate(value) {
+            if (String(Math.floor(value)).length > 5)
+                return numeral(value).format('0.0a')
+            return Intl.NumberFormat('en-UK', {}).format(value)
         },
-        formatDataDate (dateString) {
+        formatDataDate(dateString) {
             return moment(dateString).format('Do, MMM YYYY')
         },
-        formatDate (dateString) {
+        formatDate(dateString) {
             return moment(dateString).format('MMM YYYY')
         },
-        slug (str) {
+        slug(str) {
             return str != undefined
                 ? str
                     .trim()
@@ -49,7 +51,7 @@ const mixin = {
         }
     },
     methods: {
-        toastrAdd (title, msg, type) {
+        toastrAdd(title, msg, type) {
             this.$toastr.Add({
                 msg: msg,
                 title: title,
@@ -57,10 +59,10 @@ const mixin = {
                 type: type
             })
         },
-        disableTracking () {
+        disableTracking() {
             this.$ga.disable()
         },
-        enableTracking () {
+        enableTracking() {
             this.$ga.enable()
         }
     }
