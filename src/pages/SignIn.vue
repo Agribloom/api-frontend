@@ -98,7 +98,7 @@
 
                     <div class="text-sm text-center hint my-3">
                         <div>
-                            <router-link :to="{name: 'reset-password'}">Forgot password</router-link>
+                           <!-- <router-link :to="{name: 'reset-password'}">Forgot password</router-link>-->
                         </div>
                         Don't have an account?
                         <router-link to="sign-up">Sign Up</router-link>

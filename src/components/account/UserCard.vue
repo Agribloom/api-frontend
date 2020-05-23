@@ -58,7 +58,7 @@ export default {
                 return this.user !== undefined ? [this.user.first_name, this.user.last_name]
                     .map(elem => elem[0]).join(' ') : ''
             } catch (e) {
-                console.log()
+                console.log(e)
             }
         },
         completeProfile () {
