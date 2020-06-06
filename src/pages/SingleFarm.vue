@@ -31,76 +31,72 @@
 
         <!--Farm summary-->
 
-        <ul class="summary-slip">
-          <li class="slip-item">
-            <i class="fa fa-map-marker-alt icon"></i>
-            <span>{{LOCATION}}</span>
-          </li>
-          <li class="slip-item">
-            <i class="fa fa-coins icon"></i>
-            <span>{{STOCK}} units left</span>
-          </li>
-          <li class="slip-item">
-            <i class="fa fa-calendar-alt icon"></i>
-            <span>{{DURATION}} months</span>
-          </li>
-          <li class="slip-item">
-            <i class="la la-bar-chart-o icon"></i>
-            <span>{{ROI}}% ROI</span>
-          </li>
-        </ul>
+        <div class="container p-0">
+          <ul class="summary-slip">
+            <li class="slip-item">
+              <i class="fa fa-map-marker-alt icon"></i>
+              <span>{{LOCATION}}</span>
+            </li>
+            <li class="slip-item">
+              <i class="fa fa-coins icon"></i>
+              <span>{{STOCK}} units left</span>
+            </li>
+            <li class="slip-item">
+              <i class="fa fa-calendar-alt icon"></i>
+              <span>{{DURATION}} months</span>
+            </li>
+            <li class="slip-item">
+              <i class="la la-bar-chart-o icon"></i>
+              <span>{{ROI}}% ROI</span>
+            </li>
+          </ul>
+          <!--End-->
 
-        <!--End-->
-
-        <!-- Campaign Section start -->
-        <section class="farm-single">
-          <div class="mx-auto">
-            <div class="section-wrapper">
-              <div class="row justify-content-center mx-auto py-5">
-                <div class="col-lg-10 col-12">
-                  <div class="row">
-                    <div class="col-lg-8 col-12">
-                      <div class="bg-white p-2">
-                        <div class="post-thumb style-2">
-                          <div class="post-thumb-content">
-                            <FarmSummaryCard :summary="farmSummary" />
-                          </div>
-                        </div>
-
-                        <div class="mb-3 h-screen">
-                          <tabs :options="{ useUrlFragment: false }" cache-lifetime="10">
-                            <tab name="Description">
-                              <farm-description :description="DESCRIPTION" />
-                            </tab>
-                            <tab name="Video">
-                              <farm-video-listing />
-                            </tab>
-                            <tab name="Gallery">
-                              <farm-gallery-grid />
-                            </tab>
-                            <tab name="Updates">
-                              <farm-update-listing :id="NAME" :updates="farm.updates" />
-                            </tab>
-                            <tab name="Contact">
-                              <farm-manager-listing :managers="farm.managers" />
-                            </tab>
-                          </tabs>
+          <!-- Campaign Section start -->
+          <section class="farm-single">
+            <div class>
+              <div class="section-wrapper">
+                <div class="row mx-auto ">
+                  <div class="col-lg-8 col-12 p-0 ">
+                    <div class="bg-white p-2 ">
+                      <div class="post-thumb style-2">
+                        <div class="post-thumb-content">
+                          <FarmSummaryCard :summary="farmSummary" />
                         </div>
                       </div>
+
+                      <div class="mb-3 h-screen">
+                        <tabs :options="{ useUrlFragment: false }" cache-lifetime="10">
+                          <tab name="Description">
+                            <farm-description :description="DESCRIPTION" />
+                          </tab>
+                          <tab name="Video">
+                            <farm-video-listing />
+                          </tab>
+                          <tab name="Gallery">
+                            <farm-gallery-grid />
+                          </tab>
+                          <tab name="Updates">
+                            <farm-update-listing :id="NAME" :updates="farm.updates" />
+                          </tab>
+                          <tab name="Contact">
+                            <farm-manager-listing :managers="farm.managers" />
+                          </tab>
+                        </tabs>
+                      </div>
                     </div>
-                    <div class="col-lg-4 col-sm-8">
-                      <section class="sticky">
-                        <investment-calculator
-                          @paid="updateFarm"
-                          v-if="isOpen"
-                          :data="calculatorParams"
-                        />
-                        <div v-else>
-                          <div
-                            :class="['block','status-badge','lg', farm.status]"
-                          >This farm is closed</div>
-                        </div>
-                        <!--<div class="card mt-3">
+                  </div>
+                  <div class="col-lg-4 col-sm-8 p-0">
+                    <section class="sticky">
+                      <investment-calculator
+                        @paid="updateFarm"
+                        v-if="isOpen"
+                        :data="calculatorParams"
+                      />
+                      <div v-else>
+                        <div :class="['block','status-badge','lg', farm.status]">This farm is closed</div>
+                      </div>
+                      <!--TODO: <div class="card mt-3">
 																	<div class="card-body">
 																		<div class="widget-area">
 																			Other Farms
@@ -108,16 +104,15 @@
 																			</div>
 																		</div>
 																	</div>
-                        </div>-->
-                      </section>
-                    </div>
+                      </div>-->
+                    </section>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <!-- Campaign Section ending -->
+          </section>
+          <!-- Campaign Section ending -->
+        </div>
       </div>
       <div v-else>
         <alert-item :messages="'Nothing found'" :title="'Data retrieval error'"></alert-item>
@@ -127,87 +122,87 @@
 </template>
 
 <script>
-import { Tab, Tabs } from 'vue-tabs-component'
-import FarmSummaryCard from '../components/FarmSummaryCard'
-import mixin from '@/mixin'
-import { mapGetters } from 'vuex'
+import { Tab, Tabs } from "vue-tabs-component";
+import FarmSummaryCard from "../components/FarmSummaryCard";
+import mixin from "@/mixin";
+import { mapGetters } from "vuex";
 
 export default {
-    components: {
-        FarmSummaryCard,
-        Tabs,
-        Tab
-    },
-    mixins: [mixin],
-    name: 'SingleFarm',
-    data: function () {
-        return {
-            farmID: this.$route.params.id,
-            url: 'farms/' + this.$route.params.id,
-            farm: null
-        }
-    },
-    mounted: function () {
-        this.fetchFarm()
-    },
-    methods: {
+  components: {
+    FarmSummaryCard,
+    Tabs,
+    Tab
+  },
+  mixins: [mixin],
+  name: "SingleFarm",
+  data: function() {
+    return {
+      farmID: this.$route.params.id,
+      url: "farms/" + this.$route.params.id,
+      farm: null
+    };
+  },
+  mounted: function() {
+    this.fetchFarm();
+  },
+  methods: {
     /* loadFarm: function () {
                 this.errors = []
                 this.$store.dispatch('fetchFarmById', this.$route.params.id)
                 this.$store.dispatch('fetchUser')
             }, */
 
-        fetchFarm () {
-            this.$store.commit('farm/SET_LOADING', true)
-            this.farm = this.$store.getters['farm/singularById'](this.farmID)
-            if (!this.farm.length) {
-                window.axios
-                    .get(`farms/${this.farmID}`)
-                    .then(
-                        response => {
-                            this.farm = response.data
-                        },
-                        error => {
-                            this.$store.commit('farm/SET_ERROR', error)
-                        }
-                    )
-                    .finally(() => {
-                        this.$store.commit('farm/SET_LOADING', false)
-                    })
+    fetchFarm() {
+      this.$store.commit("farm/SET_LOADING", true);
+      this.farm = this.$store.getters["farm/singularById"](this.farmID);
+      if (!this.farm.length) {
+        window.axios
+          .get(`farms/${this.farmID}`)
+          .then(
+            response => {
+              this.farm = response.data;
+            },
+            error => {
+              this.$store.commit("farm/SET_ERROR", error);
             }
-        },
-        updateFarm (payload) {
-            this.farm.unit_in_stock = this.farm.unit_in_stock - payload.unit_bought
-            if (!this.farm.unit_in_stock) {
-                this.farm.status = 'sold out'
-            }
-            this.farm.raised = Number(this.farm.raised) + payload.amount_paid
-            let message = 'Payment has been completed successfully'
-            this.toastrAdd('Success', message, 'success')
-        }
+          )
+          .finally(() => {
+            this.$store.commit("farm/SET_LOADING", false);
+          });
+      }
     },
-    computed: {
-        ...mapGetters({
-            loading: 'farm/loading',
-            errors: 'farm/pluralError',
-            hasError: 'farm/hasError'
-        }),
-        breadcrumb () {
-            return [
-                { id: 0, name: 'Home', classes: '', location: '/' },
-                { id: 1, name: 'Farms', classes: '', location: '/farms' },
-                {
-                    id: 1,
-                    name: this.farm ? this.farm.name : '',
-                    classes: 'active',
-                    location: ''
-                }
-            ]
-        },
-        hasData () {
-            return this.farm
-        },
-        /* isLoading () {
+    updateFarm(payload) {
+      this.farm.unit_in_stock = this.farm.unit_in_stock - payload.unit_bought;
+      if (!this.farm.unit_in_stock) {
+        this.farm.status = "sold out";
+      }
+      this.farm.raised = Number(this.farm.raised) + payload.amount_paid;
+      let message = "Payment has been completed successfully";
+      this.toastrAdd("Success", message, "success");
+    }
+  },
+  computed: {
+    ...mapGetters({
+      loading: "farm/loading",
+      errors: "farm/pluralError",
+      hasError: "farm/hasError"
+    }),
+    breadcrumb() {
+      return [
+        { id: 0, name: "Home", classes: "", location: "/" },
+        { id: 1, name: "Farms", classes: "", location: "/farms" },
+        {
+          id: 1,
+          name: this.farm ? this.farm.name : "",
+          classes: "active",
+          location: ""
+        }
+      ];
+    },
+    hasData() {
+      return this.farm;
+    },
+    /* isLoading () {
 				 let result = []
 				 try {
 					 // Filter farm by id
@@ -222,78 +217,79 @@ export default {
 				 this.setFarm(result)
 				 return this.$store.getters.isDataLoading
 			 }, */
-        isOpen () {
-            return this.farm ? this.farm.status === 'open' : null
-        },
-        /**
+    isOpen() {
+      return this.farm ? this.farm.status === "open" : null;
+    },
+    /**
      * @return String
      */
-        NAME () {
-            return this.farm ? this.farm.name : ''
-        },
-        /**
+    NAME() {
+      return this.farm ? this.farm.name : "";
+    },
+    /**
      * @return {string}
-     */ LOCATION () {
-            return this.farm ? this.farm.location : ''
-        },
-        /**
+     */ LOCATION() {
+      return this.farm ? this.farm.location : "";
+    },
+    /**
      * @return {string}
      */
-        STOCK () {
-            return this.farm ? `${this.farm.unit_in_stock} / ${this.farm.units}` : ''
-        },
-        ROI () {
-            return this.farm ? this.farm.roi : 0
-        },
-        /**
+    STOCK() {
+      return this.farm ? `${this.farm.unit_in_stock} / ${this.farm.units}` : "";
+    },
+    ROI() {
+      return this.farm ? this.farm.roi : 0;
+    },
+    /**
      * @return {number}
      */
-        DURATION () {
-            return this.farm ? this.farm.duration : 0
-        },
-        /**
+    DURATION() {
+      return this.farm ? this.farm.duration : 0;
+    },
+    /**
      * @return {string}
      */
-        DESCRIPTION () {
-            return this.farm ? this.farm.description : ''
-        },
-        headingDetails: function () {
-            return {
-                title: this.farm ? this.farm.name : '',
-                breadcrumbs: this.breadcrumb,
-                banner: this.farm ? this.farm.image : ''
-            }
-        },
-        calculatorParams () {
-            return {
-                farm: this.farm.id,
-                unit_price: this.farm ? this.farm.price_per_unit : 0,
-                roi: (this.farm ? this.farm.roi : 0) / 100,
-                allowedUnits: this.farm.unit_in_stock,
-                duration: this.farm ? this.farm.duration : ''
-            }
-        },
-        farmSummary () {
-            return {
-                raised: this.farm ? this.farm.raised : 0,
-                target: this.farm ? this.farm.target : 0,
-                status: this.farm ? this.farm.status : 0,
-                roi: this.farm ? this.farm.roi : 0
-            }
-        }
+    DESCRIPTION() {
+      return this.farm ? this.farm.description : "";
+    },
+    headingDetails: function() {
+      return {
+        title: this.farm ? this.farm.name : "",
+        breadcrumbs: this.breadcrumb,
+        banner: this.farm ? this.farm.image : ""
+      };
+    },
+    calculatorParams() {
+      return {
+        farm: this.farm.id,
+        unit_price: this.farm ? this.farm.price_per_unit : 0,
+        roi: (this.farm ? this.farm.roi : 0) / 100,
+        allowedUnits: this.farm.unit_in_stock,
+        duration: this.farm ? this.farm.duration : ""
+      };
+    },
+    farmSummary() {
+      return {
+        raised: this.farm ? this.farm.raised : 0,
+        target: this.farm ? this.farm.target : 0,
+        status: this.farm ? this.farm.status : 0,
+        roi: this.farm ? this.farm.roi : 0
+      };
     }
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 @import "../lib/style/_variable";
 
 .farm-single {
-  margin-top: 60px;
   .section-wrapper {
+    border: 4px solid $primary;
     justify-content: center;
-
+      background: #fff;
     .post-thumb.style-2 {
+
       img {
         width: 100%;
       }
@@ -458,33 +454,34 @@ export default {
 }
 
 ul.summary-slip {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  align-items: stretch;
-  background: $primary;
-  color: $white;
+  position: relative;
   display: flex;
-  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
+  color: $white;
   font-weight: 600;
-
-  .slip-item {
-    display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0;
+  @media (max-width: 786px) {
+    padding: 0;
+  }
+    .slip-item {
+    display: block;
+    background: $primary;
     border: 1px solid rgba(200, 200, 200, 0.2);
-    flex-basis: auto;
+    flex-basis: 50%;
     font-size: 14px;
     justify-content: center;
     line-height: 1.5;
     margin: 0 auto;
-    padding: 35px 30px;
+    padding: 30px 30px;
     width: 100%;
     align-items: baseline;
 
     span {
       display: block;
       line-height: 1.5;
-      font-size: 12px;
+      font-size: 1em;
       position: relative;
     }
 
