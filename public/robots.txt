@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Allow:/
 Crawl-delay: 10
 Sitemap: https://agribloom.farm/sitemap.xml
