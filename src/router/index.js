@@ -83,11 +83,17 @@ const routes = [
         component: Home,
         meta: {
           guest: true,
-          title: `${process.env.VUE_APP_TITLE} | Home`,
+          title: `${process.env.VUE_APP_TITLE} - Home - Africa’s most preferred supplier of fruits and vegetables to
+                  retail outlet and
+                  agro-processing companies.`,
           tags: [
             {
-              name: "description",
-              content: "Home",
+              name: 'fragment',
+              content: '!'
+            },
+            {
+              name: 'robot',
+              content: 'nofollow'
             },
             {
               name: "description",
@@ -96,7 +102,9 @@ const routes = [
             },
             {
               property: "og:description",
-              content: "Home",
+              content: "Africa’s most preferred supplier of fruits and vegetables to\n" +
+                  "                  retail outlet and\n" +
+                  "                  agro-processing companies.",
             },
             /* Twitter tags */
             { name: "twitter:card", content: "summary" },
@@ -106,7 +114,9 @@ const routes = [
             },
             {
               name: "twitter:title",
-              content: `${process.env.VUE_APP_TITLE} | Home`,
+              content: `${process.env.VUE_APP_TITLE} - Home - Africa’s most preferred supplier of fruits and vegetables to
+                  retail outlet and
+                  agro-processing companies.`,
             },
             {
               name: "twitter:description",
@@ -127,15 +137,15 @@ const routes = [
         name: "faq",
         component: () => import(/* webpackPrefetch: true */ "../pages/FAQ.vue"),
         meta: {
-          title: "Agribloom | FAQ",
+          title:  `${process.env.VUE_APP_TITLE} - FAQ - Frequently asked questions`,
           tags: [
             {
               name: "description",
-              content: "Frequently asked Questions",
+              content: "Do you want to invest in agriculture? See a list of our frequently asked questions",
             },
             {
               property: "og:description",
-              content: "Frequently asked Questions",
+              content: "Do you want to invest in agriculture? See a list of our frequently asked questions",
             },
           ],
         },

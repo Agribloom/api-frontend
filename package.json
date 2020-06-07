@@ -1,5 +1,6 @@
 {
-  "name": "agribloom-frontend-api",
+  "name": "Agribloom",
+  "description": "Africa’s most preferred supplier of fruits and vegetables to retail outlet and agro-processing companies.",
   "version": "0.1.0",
   "private": true,
   "scripts": {

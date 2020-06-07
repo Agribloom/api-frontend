@@ -285,7 +285,7 @@ export default {
 
 .farm-single {
   .section-wrapper {
-    border: 4px solid $primary;
+    border: 1px solid #e1e1e1;
     justify-content: center;
       background: #fff;
     .post-thumb.style-2 {

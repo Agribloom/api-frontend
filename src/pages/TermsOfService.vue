@@ -3,11 +3,13 @@
     <page-heading :detail="headingDetails"></page-heading>
     <div class="bg-200">
       <section>
-        <div class="container">
+        <div class="container p-o">
           <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-8 col-sm-12 p-0">
               <div class="section-wrapper">
                 <div class="note">
+                  <h3 class="headline">Terms of Service</h3>
+
                   <p>
                     Please read these Terms of Use, which set forth the legally binding terms and conditions for your use of the
                     <strong>services</strong> (the “Service”) offered by
@@ -70,19 +72,22 @@
                     <strong>Agribloom</strong> in asserting any available defenses.
                   </p>
                   <h4>Limitation Of Liability</h4>
-                  <p>In no event shall Agribloom, its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from</p>
-                  <ul class="list __lower-roman">
-                    <li
-                      class="li list-item"
-                    >your access to or use of or inability to access or use the Service</li>
-                    <li
-                      class="li list-item"
-                    >any conduct or content of any third party on the Service</li>
-                    <li class="li list-item">any content obtained from the Service and</li>
-                    <li
-                      class="li list-item"
-                    >unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</li>
-                  </ul>
+                 <div class="paraph">
+                   <p>In no event shall Agribloom, its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from</p>
+                   <ul class="list __lower-roman">
+                     <li
+                             class="li list-item"
+                     >your access to or use of or inability to access or use the Service</li>
+                     <li
+                             class="li list-item"
+                     >any conduct or content of any third party on the Service</li>
+                     <li class="li list-item">any content obtained from the Service and</li>
+                     <li
+                             class="li list-item"
+                     >unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.</li>
+                   </ul>
+                 </div>
+
                   <h4>Disclaimer</h4>
                   <p>Your use of the Service is at your sole risk. The Service is provided on an “AS IS” and “AS AVAILABLE” basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.</p>
                   <p>Agribloom its subsidiaries, affiliates, and its licensors do not warrant that</p>

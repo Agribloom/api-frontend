@@ -1,6 +1,9 @@
 <template>
     <div class="dropdown">
-        <div class="dropdown-toggle" :title="`${menu.title} dropdown menu`" :id="`${id}-Dropdown`" data-toggle="dropdown"
+        <div class="dropdown-toggle"
+             :title="`${menu.title} dropdown menu`"
+             :id="`${id}-Dropdown`"
+             data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
             {{menu.title}}
             <span v-show="keyword && !checkClear">
@@ -8,8 +11,11 @@
                 <i @click.stop="onClear" title="Clear option" class="clear">&times;</i>
             </span>
         </div>
-        <div class="dropdown-menu" :aria-labelledby="this.$attrs.key">
-            <dropdown-menu-item :item="item" v-for="item in menu.items" :key="`${id}-DropdownMenu-${item.value}`"
+        <div class="dropdown-menu"
+             :aria-labelledby="this.$attrs.key">
+            <dropdown-menu-item :item="item"
+                                v-for="item in menu.items"
+                                :key="`${id}-dropdownMenu-${item.value}`"
                                 @selected="setSelected"/>
         </div>
     </div>

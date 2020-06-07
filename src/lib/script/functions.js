@@ -17,16 +17,14 @@
 
     // menu top fixed start
     $(function () {
-        var fixed_top = $('.header-section')
+        var fixed_top = $('.header-section');
         $(window).on('scroll', function () {
-            if ($(this).scrollTop() > 125) {
-                fixed_top.addClass('menu-fixed animated slideInDown')
-                fixed_top.removeClass('slideInUp')
-                $('body').addClass('body-padding')
+            if ($(this).scrollTop() > 225) {
+                fixed_top.addClass('menu-fixed animate__animated animate__slideInDown')
+                fixed_top.removeClass('animate__slideInUp')
             } else {
-                fixed_top.removeClass('menu-fixed slideInDown')
-                fixed_top.addClass('slideInUp')
-                $('body').removeClass('body-padding')
+                fixed_top.removeClass('menu-fixed animate__slideInDown')
+                fixed_top.addClass('animate__slideInUp')
             }
         })
     })

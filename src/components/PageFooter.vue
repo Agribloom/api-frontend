@@ -17,7 +17,7 @@
                 </p>
               </div>
             </div>
-            
+
             <div class="col-xl-4 col-lg-6 col-12">
               <div class="bottom-item">
                 <h4>Navigation</h4>
@@ -41,7 +41,7 @@
                     <router-link :to="{name: 'terms-of-sponsorship'}">Terms of Sponsorship</router-link>
                   </li>
                    <li class="nav-list-group-item">
-                    <a href="sitemap.xml">Site map</a>
+                    <a href="/sitemap.xml">Site map</a>
                   </li>
                 </ul>
               </div>

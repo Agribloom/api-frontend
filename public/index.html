@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-
-    <link href="/assets/favicons/favicon.png" rel="shortcut icon"/>
-    <link href="<%= BASE_URL %>assets/css/animate.css" rel="stylesheet"/>
-    <link href="<%= BASE_URL %>assets/css/aos.css" rel="stylesheet"/>
+    <meta name="keyword" content="agribusiness, agribloom, agriculture, Nigeria, fruits and vegetables,"/>
     <link href="<%= BASE_URL %>assets/css/fontawesome.css" rel="stylesheet"/>
-    <link href="<%= BASE_URL %>assets/css/lightcase.css" rel="stylesheet"/>
-    <link href="<%= BASE_URL %>assets/css/swiper.min.css" rel="stylesheet"/>
+    <link href="/assets/favicons/favicon.png" rel="shortcut icon"/>
 
     <style>
         body:not([class~="preloading"]) #app-preloader {
@@ -45,21 +41,24 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            color: green;
         }
-        #app-preloader .swiper-lazy-preloader{
-          border-color:  green;
+
+        #app-preloader .swiper-lazy-preloader {
+            border-color: green;
         }
-        
+
     </style>
-  </head>
-  <body class="preloading">
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <div id="app-preloader">
-      <i class="la swiper-lazy-preloader"></i>
-    </div>
-  </body>
+</head>
+<body class="preloading">
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+<div id="app-preloader">
+    <i class="swiper-lazy-preloader fa fa-spinner fa-spin fa-2x fa-fw" aria-hidden="true"></i>
+</div>
+</body>
 </html>

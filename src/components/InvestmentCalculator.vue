@@ -29,22 +29,28 @@
             <div class="pane">
                 <div class="left-section">
                     <div class="label">
-                        Price
+                        Unit(s) allowed
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="value"><span class="unicode naira">{{computedPrice | numerate}}</span></div>
+                    <div class="hint">
+                        Maximum units allowed
+                        <i class="fa fa-question-circle"></i>
+                    </div>
+                    <div class="value"><strong>{{allowedUnits }}</strong></div>
                 </div>
             </div>
             <div class="pane">
                 <div class="left-section">
                     <div class="label">
-                        Unit
+                        Unit(s)
                     </div>
                 </div>
                 <div class="right-section">
                     <div class="hint">
                         Unit(s) to purchase
+                        <i class="fa fa-question-circle"></i>
+
                     </div>
                     <div class="">
                         <div class="incrementor">
@@ -69,14 +75,11 @@
             <div class="pane">
                 <div class="left-section">
                     <div class="label">
-                        Information
+                        Cost
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="hint">
-                        Maximum units allowed:
-                    </div>
-                    <div class="value"><strong>{{allowedUnits }}</strong></div>
+                    <div class="value"><span class="unicode naira">{{computedPrice | numerate}}</span></div>
                 </div>
             </div>
             <div class="pane">
@@ -86,7 +89,9 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="hint">Return on investment</div>
+                    <div class="hint">Return on investment
+                        <i class="fa fa-question-circle"></i>
+                    </div>
                     <div class="value"><span class="unicode naira">{{calcRoi | numerate}}</span></div>
                 </div>
             </div>
@@ -364,8 +369,10 @@
         overflow: hidden;
         position: relative;
         height: 100vh;
-        background: #f6f6f6;
-        border: 1px solid #e1e1e1;
+        background: #fafafa;
+        background: #fafafa;
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #e1e1e1;
 
 
         .pane {
@@ -379,7 +386,7 @@
             }
 
             .header {
-                color: #b1b1b1;
+                color: $primary;
                 margin: 7px;
                 font-weight: 700;
             }
@@ -400,7 +407,10 @@
                 line-height: 1.5;
                 color: #b1b1b1;
                 margin-bottom: 0;
-                text-transform: capitalize;
+
+                &:first-letter {
+                    text-transform: uppercase;
+                }
             }
 
             .value {
@@ -420,6 +430,7 @@
                 justify-content: space-between;
                 width: fit-content;
                 background: #fff;
+
                 .display {
                     height: 100%;
                     width: 70px;
@@ -458,94 +469,5 @@
             }
         }
 
-        .slip {
-            background: $white;
-
-            border: 1px solid darken($light, 2%);
-            border-radius: 2px;
-            padding: 2px;
-
-            &:nth-child(n + 2) {
-                margin-top: -2px;
-            }
-
-            .label {
-                background: $light;
-                color: $dark-typo;
-                display: -ms-flex;
-                display: flex;
-                display: -webkit-flex;
-                justify-content: space-between;
-                border-bottom: 1px solid darken($light, 10%);
-                padding: 10px 15px;
-            }
-
-            .value {
-                font-size: 24px;
-                padding-left: 15px;
-                padding-right: 15px;
-                margin-bottom: 15px;
-                color: $primary;
-                font-weight: 600;
-            }
-
-            .units {
-                color: $black;
-                display: flex;
-                display: -webkit-flex;
-                width: 100%;
-                display: -ms-flex;
-                font-size: 24px;
-                background: #fff;
-                justify-content: space-between;
-
-                span {
-                    background: $light;
-                    color: $dark;
-                    cursor: pointer;
-                    font-size: 24px;
-                    font-weight: 600;
-                    padding: 5px 10px;
-                    text-align: center;
-                    width: 100%;
-                    flex: 1;
-                    border-bottom: 1px solid darken($light, 10%);
-
-                    &:active,
-                    &:hover {
-                        color: $primary;
-                        filter: contrast(120%);
-                    }
-                }
-
-                .unit {
-                    background: $white;
-                    display: flex;
-                    -webkit-border-radius: 0;
-                    -moz-border-radius: 0;
-                    border-radius: 0;
-                    color: $primary;
-                    outline: none;
-                    align-items: center;
-                    flex: 1;
-
-                    input {
-                        &,
-                        &:active,
-                        &:focus,
-                        &:hover {
-                            color: currentColor !important;
-                            font-size: 16px;
-                            font-weight: 600;
-                            border: none;
-                            line-height: 0;
-                            padding: 11px 7px;
-                            margin: 0;
-                            border-bottom: 1px solid darken($light, 5%);
-                        }
-                    }
-                }
-            }
-        }
     }
 </style>

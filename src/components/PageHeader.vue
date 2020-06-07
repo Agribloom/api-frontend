@@ -1,7 +1,7 @@
 <template>
   <div class="top-nav">
     <!-- mobile menu start -->
-    <div class="mobile-menu d-mobile">
+    <div class="mobile-menu d-mobile ">
       <nav class="mobile-header primary-menu d-xl-none">
         <div class="header-logo">
           <app-logo />
@@ -183,3 +183,7 @@ export default {
   }
 };
 </script>
+<style>
+  .top-nav{
+  }
+</style>

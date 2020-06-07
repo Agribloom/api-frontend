@@ -250,7 +250,7 @@ export default {
   }
 }
 .hero-board {
-  background: mix($primary, orange, 80);
+  background:$primary;
   .board-text {
     color: #ffffff;
     padding: 100px 15px;

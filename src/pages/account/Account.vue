@@ -93,10 +93,6 @@ export default {
 <style lang="scss">
 @import "../../lib/style/account/app.scss";
 
-.form-group {
-  display: block;
-  margin-bottom: 15px;
-}
 
 .label {
   display: block;

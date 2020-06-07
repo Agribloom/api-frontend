@@ -66,7 +66,7 @@ export default {
     return {
       swiperOption: {
         spaceBetween: 0,
-        freeMode: false,
+        freeMode: true,
         autoplay: {
           delay: 5000,
           disableOnInteraction: true
@@ -74,7 +74,7 @@ export default {
         speed: 3000,
         autoHeight: true,
         watchOverflow: true,
-        loop: true,
+        loop: false,
         centeredSlides: true,
         breakpoints: {
           // when window width is >= 320px
@@ -194,6 +194,8 @@ export default {
               position: absolute;
               top: 0;
               left: 0;
+             object-fit: cover;
+              object-position: center;
               width: 100%;
               height: 100%;
             }

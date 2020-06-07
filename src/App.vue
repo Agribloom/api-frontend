@@ -39,7 +39,6 @@ export default {
 
 <style lang="scss">
     @import url("https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css");
-
     .track-popup {
         position: fixed;
         left: 10%;
@@ -59,5 +58,5 @@ export default {
         box-shadow: 0 -7px 7px -7px #ddd;
     }
 
-  
+
 </style>

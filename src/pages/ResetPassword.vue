@@ -341,7 +341,7 @@ export default {
       let params = {
         email: formData["email"].value
       };
-      return window.axios.post("/password/reset/confirm/", params);
+      return window.axios.post("/password/reset/", params);
     }
   }
 };

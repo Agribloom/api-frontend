@@ -1,6 +1,6 @@
-# agribloom-fe | Agribloom-Frontend
+#Agribloom
+####Africa’s most preferred supplier of fruits and vegetables to retail outlet and agro-processing companies.
 
-## Agribloom Front-end API
 ### Project setup
 ```
 yarn install
