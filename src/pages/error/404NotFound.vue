@@ -27,8 +27,8 @@ export default {
 @import "../../lib/style/__variable.scss";
 .page-error {
   &:before {
-    background-image: url(/assets/images/404/error-bg.jpg);
-    background-size: cover;
+    background-image: url(/assets/images/404/error-cone.png);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;
     filter: grayscale(20%);

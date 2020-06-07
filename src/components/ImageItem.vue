@@ -1,6 +1,8 @@
 <template>
   <figure :class="classes" ref="figure" v-lazyload>
-    <img :class="[imgClass, {'loading': !this.loaded}]" :data-url="source" alt="alt" />
+    <img :class="[imgClass, {'loading': !this.loaded}]"
+         :data-url="source"
+         :alt="alt" />
     <nomsg-spinner :classes="loaderClass" :loading="loading" v-if="loading" />
   </figure>
 </template>

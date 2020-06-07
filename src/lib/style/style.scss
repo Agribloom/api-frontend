@@ -7271,18 +7271,21 @@ button.custom-btn {
 }
 
 .note {
+  display: block;
   background: $white;
   margin-top: 60px;
   margin-bottom: 0;
   padding: 15px;
-  border-top: 4px solid $light-bd;
+  border: 1px solid $light-bd;
   -webkit-border-radius: $bdrs;
   -moz-border-radius: $bdrs;
   border-radius: $bdrs;
   color: $dark;
-  .paraph{
-    margin-bottom: 4px;
+  
+  .paraph {
+	margin-bottom: 4px;
   }
+  
   @media screen and (min-width: 768px) {
 	padding: 15px 30px;
   }
@@ -7413,11 +7416,11 @@ button.custom-btn {
   }
   
   &.__disc > .list-item {
-	list-style: disc;
+	list-style: disc outside;
   }
   
   &.__circle > .list-item {
-	list-style: circle;
+	list-style: circle outside;
   }
   
   &.__hyphen > .list-item {
@@ -7454,4 +7457,8 @@ button.custom-btn {
 .form-group {
   display: block;
   margin-bottom: 15px;
+}
+
+.row {
+  margin: 0 auto !important;
 }

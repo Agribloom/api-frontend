@@ -37,10 +37,12 @@
                     <div class="swiper-wrapper">
                         <div
                                 class="swiper-slide"
-                                v-for="(img, index) in banners"
+                                v-for="(banner, index) in banners"
                                 :key="`banner-slider-img-${index}`"
                         >
-                            <img :src="img" alt class="banner-img"/>
+                            <img :src="banner"
+                                        :alt="`bannerImage${index}`"
+                                        class="banner-img"/>
                         </div>
                     </div>
                 </div>
@@ -114,10 +116,15 @@
         width: 100%;
         border: 1px solid transparent;
         overflow: hidden;
+        display: block;
+        content: '';
 
         .banner-img {
             width: 100%;
             position: relative;
+            object-fit: cover !important;
+            object-position: center;
+            height: 100% !important;
         }
 
         @media (max-width: 700px) {

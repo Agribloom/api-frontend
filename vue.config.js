@@ -1,4 +1,9 @@
 const SitemapPlugin = require("sitemap-webpack-plugin").default;
+const imageminPlugin = require("imagemin-webpack-plugin").default;
+const imageminMozjpeg = require("imagemin-mozjpeg");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+
 const paths = [
     {
         path: "/",
@@ -44,12 +49,28 @@ module.exports = {
     },
     configureWebpack: {
         plugins: [
+            new CopyWebpackPlugin([{
+                from: path.posix.join(path.resolve(__dirname, 'public/assets/images').replace(/\\/g, '/'), '/*.{png,jpg}'),
+                to: path.resolve(__dirname, 'dist'),
+            }]),
             new SitemapPlugin("https://agribloom.farm", paths, {
                 filename: "sitemap.xml",
                 lastmod: true,
                 changefreq: "hourly",
                 priority: "0.8",
             }),
+            new imageminPlugin({
+                disable: process.env.NODE_ENV !== 'production',
+                pngquant: {
+                    quality: '45-50'
+                },
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                plugins: [
+                    imageminMozjpeg({
+                        quality: 50,
+                        progressive: true
+                    })]
+            })
         ],
     },
 };

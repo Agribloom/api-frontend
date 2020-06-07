@@ -75,7 +75,7 @@ const routes = [
   },
   {
     path: "/",
-    component: () => import("../pages/Welcome.vue"),
+    component: () => import(/* webpackPrefetch: true */"../pages/Welcome.vue"),
     children: [
       {
         path: "",

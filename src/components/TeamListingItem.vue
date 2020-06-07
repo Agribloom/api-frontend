@@ -4,7 +4,8 @@
       <div class="team">
         <ul class="meta">
           <li class="meta-icon">
-            <image-item :alt="item.img" :source="item.img" />
+            <image-item :alt="item.img"
+                        :source="item.img" />
           </li>
           <li class="meta-name">{{item.meta.name}}</li>
           <li class="meta-role">{{item.meta.role}}</li>

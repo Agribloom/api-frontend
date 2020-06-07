@@ -3,13 +3,12 @@
     <page-heading :detail="headingDetails"></page-heading>
     <div class="bg-200">
       <section>
-        <div class="container p-o">
+        <div class="container p-0">
           <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12 p-0">
               <div class="section-wrapper">
                 <div class="note">
                   <h3 class="headline">Terms of Service</h3>
-
                   <p>
                     Please read these Terms of Use, which set forth the legally binding terms and conditions for your use of the
                     <strong>services</strong> (the “Service”) offered by
@@ -24,7 +23,7 @@
 
                   <p>By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service and that the Company may use any information the Company obtains about you in accordance with the provisions of the Privacy Policy.</p>
 
-                  <h3 class="headline">Summary of service</h3>
+                  <h4 class="headline">Summary of service</h4>
 
                   <p>
                     <strong>AgriBloom</strong> is an agric-tech platform that gives people the opportunity to participate in the agricultural sector by selecting the kind of farms they want to sponsor. We use the contributors’(“Sponsors”) funds to secure land, engage farmers, plant seeds, insure farmers and farm produce, complete a full farming cycle, sell harvests and then pay the Sponsor profits from a successfully harvested farming cycle. While this farm cycle is on-going, the Sponsors are able to keep track of the full-cycle by getting updates in text, pictures and videos.
