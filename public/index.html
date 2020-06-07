@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon prefetch" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <meta name="keyword" content="agribusiness, agribloom, agriculture, Nigeria, fruits and vegetables,"/>
-    <link href="<%= BASE_URL %>assets/css/fontawesome.css" rel="stylesheet"/>
-    <link href="/assets/favicons/favicon.png" rel="shortcut icon"/>
-
+    <meta name="description" content="Africa's most preferred supplier of fruits and vegetables to retail outlets and agro-processing companies"/>
+    <meta name="keywords" content="Tomato farm, supply to retail outlets, Pepper farm, agribusiness, agribloom, agriculture, Uyo, agribusiness in Nigeria, supplier of fruits and vegetables,"/>
+    <link href="<%= BASE_URL %>assets/css/fontawesome.css" rel="stylesheet prefetch" />
+    <link href="/assets/favicons/favicon.png" rel="shortcut icon preload"/>
+    <meta name="color-scheme" content="only light">
     <style>
         body:not([class~="preloading"]) #app-preloader {
             opacity: 0;
@@ -52,6 +53,8 @@
 </head>
 <body class="preloading">
 <noscript>
+<h1>Agribloom.farm</h1>
+<p>Africa's most preferred supplier of fruits and vegetables to retail outlets and agro-processing companies</p>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>
 </noscript>
