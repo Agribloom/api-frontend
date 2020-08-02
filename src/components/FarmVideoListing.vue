@@ -1,6 +1,8 @@
 <template>
     <div v-if="!hasVideo">
-        <alert-item messages="No video found yet!" fontIcon="las la-play-circle"/>
+        <alert-item messages="No video found"
+                    title="Videos"
+                    fontIcon="las la-play-circle"/>
     </div>
     <div v-else>
         <farm-video-item />

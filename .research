@@ -1,0 +1,8 @@
+Paystack transfer parameters
+
+"type": "nuban",
+name": "Zombie",
+description": "Zombier",
+account_number": "01000000010",
+bank_code": "044",
+currency": "NGN"

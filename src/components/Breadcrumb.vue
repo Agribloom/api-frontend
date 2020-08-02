@@ -45,9 +45,9 @@
             align-items: center;
             width: auto;
             border-radius: 2px;
-            background: #fff;
+            background: rgba(15, 19, 15, 0.59);
             padding: 7px 4px;
-
+            color: $light;
             @media (min-width: 1200px) {
                 justify-content: left;
             }
@@ -86,7 +86,7 @@
                     display: block;
 
                     &:hover {
-                        color: $dark;
+                        color: white;
                     }
 
                     &.active {

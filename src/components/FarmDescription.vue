@@ -1,6 +1,9 @@
 <template>
        <div>
-           <alert-item v-if="!hasDescription" :messages="'No description found yet!'" fontIcon="las la-comment"/>
+           <alert-item v-if="!hasDescription"
+                       title="Description"
+                       :messages="'No description found'"
+                       fontIcon="las la-comment"/>
            <collapsible-text v-else-if="isCollapsible" height="140" class="description" :action="true">
                <span v-html="description"></span>
            </collapsible-text>

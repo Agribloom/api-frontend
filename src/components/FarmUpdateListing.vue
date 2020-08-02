@@ -1,7 +1,9 @@
 <template>
     <div>
         <div v-if="!hasUpdate">
-            <alert-item :messages="'No update found yet!'" fontIcon="las la-exclamation"/>
+            <alert-item :messages="'No update found'"
+                        title="Updates"
+                        fontIcon="las la-exclamation"/>
         </div>
         <div v-else class="update-listing">
             <farm-update-item @showUpdate="showUpdateInModal" v-for="(update, index) in updates" :update="update"

@@ -1,6 +1,8 @@
 <template>
     <div v-if="!hasImage">
-        <alert-item messages="No image found yet!" fontIcon="las la-image"/>
+        <alert-item messages="No images found"
+                    title="Gallery"
+                    fontIcon="las la-image"/>
     </div>
     <div class="gallery" v-else>
         <farm-gallery-item :images="images"/>

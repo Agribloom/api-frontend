@@ -1,11 +1,8 @@
 <template>
     <div class="container-fluid p-0 ">
         <!-- BreadCamp start here-->
-        <div class="divider shift-mobile-down">
-            <div class="container">
-                <bread-crumbs :breadcrumbs="breadcrumbs"/>
-            </div>
-        </div>
+        <page-heading :detail="headingDetails"></page-heading>
+
         <!-- BreadCamp ending-->
 
         <!-- campaign section start -->
@@ -28,6 +25,15 @@ export default {
                 { id: 0, name: 'Home', classes: '', location: '/' },
                 { id: 1, name: 'Farms', classes: 'active', location: '' }
             ]
+        }
+    },
+    computed:{
+        headingDetails: function () {
+            return {
+                title: 'Our Farms',
+                breadcrumbs: this.breadcrumbs,
+                banner: '/assets/images/farms/farms-banner.jpg'
+            }
         }
     }
 }

@@ -33,16 +33,16 @@ export default {
           roi: "",
           raised: "",
           target: "",
-          status: ""
+          status: "",
         };
-      }
-    }
+      },
+    },
   },
   computed: {
     status() {
       return this.summary.status;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -50,8 +50,7 @@ export default {
 @import "../lib/style/_variable";
 
 .skill-item {
-  border: 1px solid $light-bd;
-  border-radius: $bdrs;
+  border: 1px solid #ececec;
   margin: 0;
   overflow: hidden;
   position: relative;

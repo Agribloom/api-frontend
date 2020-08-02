@@ -3,7 +3,7 @@
 
         <slot :contents="displayedContent"></slot>
 
-        <nav aria-label="Page navigation" class="">
+        <nav aria-label="Page navigation" class="" v-if="contents.length >= perPage">
             <ul class="pagination">
                 <li class="pagination-item">
                     <a @click="previous" v-if="showPrev">

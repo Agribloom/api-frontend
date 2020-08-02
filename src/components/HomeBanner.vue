@@ -16,11 +16,11 @@
                                 <div class="d-block">
                                     <div class="custom-btn-group my-4">
                                         <div>
-                                            <router-link :to="{ name: 'sign-up' }" class="cbtn btn">Sign Up
+                                            <router-link :to="{ name: 'sign-up' }" class="btn secondary">Sign Up
                                             </router-link>
                                         </div>
                                         <div>
-                                            <router-link :to="{ name: 'farms' }" class="cbtn btn primary">Invest Now
+                                            <router-link :to="{ name: 'farms' }" class=" btn primary">Invest Now
                                             </router-link>
                                         </div>
                                     </div>

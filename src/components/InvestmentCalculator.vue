@@ -96,29 +96,28 @@
                 </div>
             </div>
             <div class="pane">
-                <div class="d-block" style="width: 100%">
+                <div class="d-block pt-2" style="width: 100%">
                     <div v-if="isAuth" class="w-full">
-                        <paystack
-                                class="cbtn d-flex justify-content-center primary lg w-full"
-                                :amount="computedPrice * 100"
-                                :email="user.email || ''"
-                                :paystackkey="payment.paystack.key"
-                                :callback="paystackCallback"
-                                :close="closePaymentModal"
-                                :reference="''"
-                                :embed="payment.paystack.embed"
-                        >Invest
+                        <paystack class="cbtn d-flex justify-content-center primary lg w-full"
+                                  :amount="computedPrice * 100"
+                                  :email="user.email || ''"
+                                  :paystackkey="payment.paystack.key"
+                                  :callback="paystackCallback"
+                                  :close="closePaymentModal"
+                                  :reference="''"
+                                  :embed="payment.paystack.embed"
+                        >
+                            Invest
                         </paystack>
                     </div>
                     <div class="w-full" v-else>
-                        <router-link
-                                :to="{name: 'sign-in', params: {nextUrl: fullPath}}"
-                                class="cbtn d-flex justify-content-center primary lg"
+                        <router-link :to="{name: 'sign-in', params: {nextUrl: fullPath}}"
+                                     class="cbtn d-flex justify-content-center primary w-full"
                         >
                             <i class="la la-sign-in"></i>Invest
                         </router-link>
                     </div>
-                    <div class="m-2 d-block" style="text-align: center">
+                    <div class="mt-2 mb-4 p-2 d-block" style="text-align: center">
                         <p style="font-size: 12px; line-height:1">
                             By investing, you agree to the
                             <router-link :to="{name: 'terms-of-sponsorship'}">Terms of sponsorship</router-link>
