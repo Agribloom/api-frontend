@@ -4,23 +4,23 @@
             <div class="farm-card-inner">
                 <div class="farm-card-thumb">
                     <farm-summary-card :summary="farmSummary"/>
-                    <div
-                            :class="['farm-state d-flex align-items-baseline justify-content-between', statusClass]"
-                    >
+                    <div :class="['farm-state d-flex align-items-baseline justify-content-between', statusClass]">
                         <div>
-                            <small class="p-2" style="text-transform:uppercase; font-weight: 600">{{farmStatus
-                                }}</small>
-                        </div>
-                        <div class="insured" v-if="farm.insured">
-                            <div class="__text">
-                                <img src="/assets/images/insured.png" alt/>
-                                Insured
-                            </div>
+                            <small class="p-2" style="text-transform:uppercase; font-weight: 600">
+                                {{farmStatus}}
+                            </small>
                         </div>
                     </div>
                     <div class="farm-thumb-container">
                         <image-item :alt="farm.name" :source="farm.image"/>
                     </div>
+                    <div class="insured" v-if="farm.insured">
+                        <div class="__text">
+                            <img src="/assets/images/insured.png" alt/>
+                            Insured
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="farm-card-content">
@@ -231,7 +231,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     letter-spacing: 0;
-                    font-weight: 500;
+                    font-weight: 700;
                 }
 
                 .meta {
@@ -250,16 +250,16 @@
             }
 
             .insured {
-                position: relative;
+                position: absolute;
                 z-index: 5;
                 display: flex;
                 flex: 1;
-                width: 100%;
-                height: 100%;
+
                 justify-content: flex-end;
                 font-weight: 400;
                 margin: 0;
-
+                bottom: 7px;
+                right: 7px;
                 .__text {
                     color: #8a8a8a;
                     background: rgb(255, 255, 255);

@@ -1,7 +1,7 @@
 $fixed-w: 10rem;
 $fixed-m: 1rem;
 $spacing-left: ($fixed-m * 2)+$fixed-w;
-$background: lighten($dark, 75%);
+$background: #f1f1f1;
 
 @mixin fullscreen() {
   .offset {
@@ -73,8 +73,7 @@ $background: lighten($dark, 75%);
       -moz-border-radius: $bdrs;
       -webkit-border-radius: $bdrs;
       border-radius: $bdrs;
-      margin-bottom: 15px;
-      padding: 15px;
+      padding: 7px 14px;
       text-align: right;
     }
 
@@ -106,11 +105,11 @@ $background: lighten($dark, 75%);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.45;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
     max-width: 100%;
     min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
     position: relative;
     text-align: left;
     width: 100%;
@@ -127,7 +126,7 @@ $background: lighten($dark, 75%);
       line-height: 1;
       //margin: 0 15px 0 0;
       margin: 0;
-      padding: 6px 30px 8px 0;
+      padding: 6px 15px 8px 0;
       text-align: left;
       text-transform: uppercase;
       white-space: nowrap;
@@ -241,27 +240,21 @@ $background: lighten($dark, 75%);
         padding: 15px 25px;
         white-space: nowrap;
         background: #FFFFFF;
-        -webkit-box-shadow: 0px 7px 7px -5px $light;
-        -moz-box-shadow: 0px 7px 7px -5px $light;
-        box-shadow: 0px 7px 14px -7px $light;
-        border: 2px solid $primary;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
+       
 
         .summary {
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-end;
-          font-weight: 300;
+          font-weight: 400;
           font-size: 16px;
-          color: #888888;
+          color: adjust_color($primary, $saturation: -30%, $alpha: -.25);
           line-height: 1.25;
-          padding: 7px;
+          padding: 20px 7px;
           text-align: right;
           align-items: flex-end;
           .chart{
-            min-height: 200px;
+            //min-height: 200px;
           }
           .value{
             font:{
@@ -284,28 +277,28 @@ $background: lighten($dark, 75%);
         flex-wrap: wrap;
 
         >.fact-item {
-          -moz-border-radius: $bdrs;
+          /*-moz-border-radius: $bdrs;
           -webkit-border-radius: $bdrs;
-          border-radius: $bdrs;
-          color: #888888;
+          border-radius: $bdrs;*/
+          color: adjust_color($primary, $saturation: -30%, $alpha: -.25);
           display: inline-block;
           flex: 1 auto;
-          font-weight: 300;
+          font-weight: 400;
           font-size: 16px;
           line-height: 1.25;
-          padding: 60px 25px 15px;
+          padding: 25px 25px 15px;
           text-align: right;
           width: auto;
-          -webkit-box-shadow: 0px 7px 7px -5px $light;
+          /*-webkit-box-shadow: 0px 7px 7px -5px $light;
           -moz-box-shadow: 0px 7px 7px -5px $light;
-          box-shadow: 0px 7px 14px -7px $light;
+          box-shadow: 0px 7px 14px -7px $light;*/
           background: #FFFFFF;
+          //border: 1px solid $light;
 
           &:not(:last-child) {
             margin-right: 4px;
           }
 
-          border: 1px solid $light;
 
           span {
             border: none;
@@ -324,12 +317,11 @@ $background: lighten($dark, 75%);
   }
 
   .account-card {
-    background: rgba(219, 219, 219, 0.25);
+    background: #fff;
     border: 1px solid $light;
     -moz-border-radius: $bdrs;
     -webkit-border-radius: $bdrs;
     border-radius: $bdrs;
-
     margin-bottom: 30px;
     overflow: hidden;
     position: relative;
@@ -352,6 +344,7 @@ $background: lighten($dark, 75%);
     }
 
     .card-body {
+      padding: 0;
       .icon-circle {
         background-color: rgba(249, 249, 249, 0.72);
         border-radius: 50%;
@@ -659,8 +652,7 @@ $background: lighten($dark, 75%);
 
         /*justify-content: center;*/
         .account-navbar-link-item {
-          background: $primary;
-          color: $white;
+          color: $light-bd;
           display: flex;
           flex: 1;
           justify-content: center;
@@ -685,15 +677,16 @@ $background: lighten($dark, 75%);
             }
 
             &:hover {
-              background: $primary-light;
+              background: adjust_color($primary-light, $alpha: -.95);
             }
           }
 
 
           &.active {
             background: $white;
-            border-top: 1px $primary solid;
+            border-top: 2px $primary solid;
             color: $primary;
+            background: adjust_color($primary-light, $alpha: -.95);
           }
         }
       }
@@ -714,7 +707,7 @@ $background: lighten($dark, 75%);
     top: 0;
 
     .padding-bt {
-      padding-bottom: 100px;
+      padding-bottom: 30px;
     }
   }
 
@@ -806,7 +799,7 @@ $background: lighten($dark, 75%);
         .account-navbar-horizontal {
           .account-navbar {
             padding: 0 7px;
-
+            background: #fff;
             .account-navbar-brand.display-alt {
               background: #000000;
               display: none;
@@ -851,13 +844,13 @@ $background: lighten($dark, 75%);
   }
 
   .faq-bubble {
-    background: rgb(255, 255, 255);
+    background:$light;
 
     a {
-      color: rgb(211, 230, 211)ece;
+      color:$primary;
     }
 
-    bottom: 60px;
+    top: 125px;
     line-height: 1;
     padding: 15px;
     padding-right: 25px;
@@ -870,7 +863,7 @@ $background: lighten($dark, 75%);
     -moz-border-radius: $bdrs;
     -webkit-border-radius: $bdrs;
     border-radius: $bdrs;
-    border: 1px solid $white;
+    border: 1px solid $light-typo;
   }
 
   .contact-card {
@@ -921,12 +914,7 @@ $background: lighten($dark, 75%);
       background: #fff;
       width: 100%;
 
-      .contact-initial {
-        font-weight: 600;
-        font-size: 71px;
-        color: $gray-300;
-        line-height: 2;
-      }
+      
 
       @media all and (max-width: 786px) {
         width: 100%;

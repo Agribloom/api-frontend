@@ -5,25 +5,21 @@
             <div v-else-if="hasData">
                 <!--            Table controls-->
                 <div class="table-controls" v-if="controls">
-                    <div class="v-control m-2 table-search">
+                    <div class="table-search px-2">
                         <label class="sr-only" for="table-search">Search by keyword</label>
-                        <input
-                                class="table-search"
-                                id="table-search"
-                                placeholder="Search by keyword..."
-                                type="search"
-                                v-model="search"
+                        <input id="table-search"
+                               placeholder="Search by keyword..."
+                               type="search"
+                               v-model="search"
                         />
                     </div>
-                    <div class=" m-2" style="width: 70px ; margin-left: 0;">
+                    <div class="table-filter px-2">
                         <label class="sr-only" for="table_item_per_page">Items per page</label>
                         <div class="form-element">
-                            <select
-                                    @change="resetPagination"
+                            <select @change="resetPagination"
                                     id="table_item_per_page"
                                     class=""
-                                    v-model="paginate.limit"
-                            >
+                                    v-model="paginate.limit">
                                 <option
                                         :key="`perPage-${i}`"
                                         :selected="paginate.limit === i * 5"
@@ -40,14 +36,14 @@
                 </div>
                 <!--            End-->
                 <!--            Table pagination - top-->
-                <nav class="pagination" v-if="paginate.show">
+               <!-- <nav class="pagination" v-if="paginate.show">
                   <span class="page-stats hint">
                     <strong>{{ paginate.from }}</strong> - <strong>{{ paginate.to }}</strong> of
                     <strong>{{ paginate.length }}</strong> result(s) found
                   </span>
 
                     <div class="pagination-btn">
-                        <button
+                        <button v-if="paginate.prev"
                                 :class="{ disabled: !paginate.prev }"
                                 :disabled="!paginate.prev"
                                 @click="previous"
@@ -57,7 +53,7 @@
                             <i class="la la-chevron-left"></i>
                         </button>
 
-                        <button
+                        <button v-if="paginate.next"
                                 :class="{ disabled: !paginate.next }"
                                 :disabled="!paginate.next"
                                 @click="next"
@@ -67,7 +63,7 @@
                             <i class="la la-chevron-right"></i>
                         </button>
                     </div>
-                </nav>
+                </nav>-->
                 <!--End-->
                 <!-- Main table -->
                 <div class="shade data-table">
@@ -158,7 +154,7 @@
                   </span>
 
                     <div class="pagination-btn">
-                        <button
+                        <button v-if="paginate.prev"
                                 :class="{ disabled: !paginate.prev }"
                                 :disabled="!paginate.prev"
                                 @click="previous"
@@ -168,7 +164,7 @@
                             <i class="la la-chevron-left"></i>
                         </button>
 
-                        <button
+                        <button v-if="paginate.next"
                                 :class="{ disabled: !paginate.next }"
                                 :disabled="!paginate.next"
                                 @click="next"
@@ -557,7 +553,8 @@
         overflow-x: auto;
         width: 100%;
         position: relative;
-
+        border: 2px dashed adjust_color($primary-light, $alpha: -.5);
+        background: #fff;
         table {
             border: 1px $light-bd solid;
             background: $white;
@@ -571,6 +568,10 @@
                 background: transparentize($primary, 0.95%);
                 color: $dark;
                 border-bottom: 1px $light-bd solid;
+                white-space: nowrap;
+                -ms-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                overflow: hidden;
 
                 &.active {
                     color: $primary;
@@ -597,9 +598,10 @@
     .table-controls {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 15px;
-        align-items: baseline;
+        margin-bottom: 7px;
+        align-items: center;
         flex-wrap: wrap;
+        padding: 14px 0;
 
         .table-search {
             outline: none;
@@ -607,11 +609,19 @@
             -ms-flex: auto;
             flex: auto;
             margin-right: 0;
+            input{
+                padding: 7px;
+            }
+        }
+
+        .table-filter {
+
         }
     }
 
     .pagination {
-        margin: 15px auto;
+        margin: 7px auto;
+        padding: 0 7px;
         display: flex;
         -ms-align-items: baseline;
         align-items: baseline;
@@ -676,7 +686,7 @@
             position: absolute;
             text-overflow: ellipsis;
             white-space: nowrap;
-            padding: 2px 7px 2px 7px;
+            padding: 7px 7px 2px 7px;
             right: 14px;
             left: 0;
         }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container px-0">
     <div class="content-header-left col-md-8 col-12 breadcrumb-new">
       <div class="row">
         <h3 class="content-header-title">Investment</h3>
@@ -13,8 +13,8 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row ">
+      <div class="col-md-12 p-0">
         <template v-if="loading">
           <div class="account-card">
             <div class="card-body">
@@ -33,6 +33,7 @@
           </div>
           <!-- <investment-withdrawal/> -->
           <investment-summary />
+          <br>
           <investment-listing />
         </template>
       </div>

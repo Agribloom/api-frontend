@@ -39,7 +39,7 @@
         </div>
         <div class="special-section">
           <section class="container">
-            <div class>
+            <div class style="z-index: 100;">
               <div class="section-header py-4">
                 <h2>
                   Our
@@ -49,17 +49,20 @@
                   <span>Meet our hardworking team</span>
                 </h2>
               </div>
-              <div class="pb-5 block">
-                <team-listing title="Founders" :team="team.founders" />
-                <team-listing title="Sales/Marketing/Branding" :team="team.marketing" />
-                <team-listing title="Investment" :team="team.investment" />
-                <team-listing title="Administration" :team="team.admin" />
-                <team-listing title="Client relation" :team="team.relation" />
-                <team-listing title="Tech" :team="team.tech" />
-              </div>
             </div>
+            <div class="pb-5 block" >
+              <team-listing title="Founders" :team="team.founders" />
+              <team-listing title="Sales/Marketing/Branding" :team="team.marketing" />
+              <team-listing title="Investment" :team="team.investment" />
+              <team-listing title="Administration" :team="team.admin" />
+              <team-listing title="Client relation" :team="team.relation" />
+              <team-listing title="Tech" :team="team.tech" />
+            </div>
+
           </section>
+
         </div>
+
       </div>
     </div>
 

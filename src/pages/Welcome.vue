@@ -8,8 +8,8 @@
 </template>
 <script>
 
-require('../lib/script/libraries')
-require('../lib/style/app.scss')
+require('../lib/script/libraries');
+require('../lib/style/app.scss');
 const HeaderFooterComponents = [
     'home',
     'farms',
@@ -21,7 +21,10 @@ const HeaderFooterComponents = [
     'terms-of-service',
     'terms-of-sponsorship',
     'privacy'
-]
+];
+$(function () {
+  window.$('[data-toggle="tooltip"]').tooltip()
+})
 export default {
     name: 'Welcome',
     data () {

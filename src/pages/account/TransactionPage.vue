@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container p-0">
         <div class="content-header-left col-md-8 col-12 breadcrumb-new">
             <div class="row">
                 <h3 class="content-header-title">Transactions</h3>
@@ -21,16 +21,15 @@
                 </h3>
             </div>
 
-            <div class="row" >
-                <div class="col-md-12">
-                    <data-table
-                            :editable="editable"
-                            :controls="controls"
-                            :data="transactions"
-                            :fields="fields"
-                            :pagination="pagination"
-                            ref="data-table"
-                            :emptyErrorResponse = "emptyErrorResponse"
+            <div class="row">
+                <div class="col-md-12 p-0">
+                    <data-table :editable="editable"
+                                :controls="controls"
+                                :data="transactions"
+                                :fields="fields"
+                                :pagination="pagination"
+                                ref="data-table"
+                                :emptyErrorResponse="emptyErrorResponse"
                     ></data-table>
                 </div>
             </div>
@@ -91,7 +90,7 @@
             };
         },
         computed: {
-            emptyErrorResponse(){
+            emptyErrorResponse() {
                 return {
                     icon: 'las la-exchange-alt',
                     message: `Your transactions will show here`,

@@ -81,16 +81,14 @@ export default {
 @import "../lib/style/_variable";
 
 .team-section-wrapper {
-  border: 1px solid transparent;
-  border-bottom: none;
     background: #fff;
-
+  z-index: 10;
+  position: relative;
   -webkit-box-shadow: 0vmin 7px 7px -7px #ddd;
   -moz-box-shadow: 0vmin 7px 7px -7px #ddd;
   box-shadow: 0vmin 7px 15px 1px #efefef;
   overflow: hidden;
-  border: 1px solid #f1f1f1;
-  margin-bottom: 30px;
+  border-bottom: 1px solid #f1f1f1;
   &:first-of-type {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -129,6 +127,11 @@ export default {
       top: 25%;
       right: 14px;
       bottom: 25%;
+      padding: 0 7px;
+      background: #ececec;
+      -webkit-border-radius: $bdrs;
+      -moz-border-radius: $bdrs;
+      border-radius: $bdrs;
     }
   }
   .team-item {

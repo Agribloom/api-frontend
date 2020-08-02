@@ -4,7 +4,6 @@
             <div class="metric-text">
                 <div class="summary">
                     <div class="chart"></div>
-
                     <div>
                         <div class="value">
                             <small class="unicode naira" title="total"></small>
@@ -16,10 +15,10 @@
             </div>
             <div class="facts">
                 <div class="fact-item"  v-if="highest!= undefined">
-                <span>
-                    <small class="unicode naira" title="highest"></small>
-                    {{highest.amount | numerate}}
-                </span>
+                    <span>
+                        <small class="unicode naira" title="highest"></small>
+                        {{highest.amount | numerate}}
+                    </span>
                     Highest
                 </div>
                 <div class="fact-item"  v-if="lowest != undefined">

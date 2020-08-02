@@ -9,7 +9,7 @@
     <account-sidebar />
     <main>
       <div class="account-body-wrapper offset anim">
-        <div class="container" v-if="hasGlobalErrors">
+        <div class="container p-0" v-if="hasGlobalErrors">
           <alert-item :messages="globalErrors">
             <div @click="fetchData" class="cbtn">
               <i class="la la-refresh icon"></i>&nbsp;

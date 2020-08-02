@@ -7030,43 +7030,6 @@ ul.meta {
   min-height: 100vmin;
 }
 
-.btn {
-  $bg: #ffffff;
-  -moz-box-shadow: 0px 5px 5px -4px #888888;
-  -webkit-box-shadow: 0px 5px 5px -4px #888888;
-  box-shadow: 0px 5px 5px -4px #888888;
-  background: #fff;
-  // height: auto;
-  border: 2px solid $bg;
-  border-radius: $bdrs;
-  color: $dark-typo;
-  line-height: 1.5;
-  padding: 12px 30px;
-  transition: all 0.34s cubic-bezier(1, 0, 0, 1);
-  margin: .5rem;
-  width: auto;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  
-  &.primary {
-	$bg: $primary;
-	background: $bg;
-	color: #ffffff;
-  }
-  
-  &.secondary {
-	$bg: #e8e8e8;
-	background: $bg;
-  }
-  
-  &:hover {
-	filter: contrast(150%);
-	text-decoration: none
-  }
-  
-  
-}
 
 .custom-btn-group {
   border-radius: $bdrs;
@@ -7316,7 +7279,7 @@ button.custom-btn {
   -moz-border-radius: $bdrs;
   border-radius: $bdrs;
   background: $gray-100;
-  border: 1px solid $light-bd;
+  border: 1px solid $dark;
   
   @media all and (max-width: 786px) {
 	flex-direction: column;
@@ -7356,37 +7319,6 @@ button.custom-btn {
 	}
   }
   
-  .content {
-	width: 100%;
-	padding: 15px;
-	
-	.name {
-	  margin-bottom: 14px;
-	  font-size: 20px;
-	}
-	
-	.meta {
-	  margin-bottom: 15px;
-	  
-	  .meta-item {
-		margin: 0 0 2px;
-		line-height: 1.25;
-		color: $light-typo;
-		font-size: .85em;
-		display: block;
-		
-		span {
-		  align-items: baseline;
-		  display: flex;
-		  
-		  i {
-			margin-right: 4px;
-		  }
-		}
-	  }
-	}
-	
-  }
   
   &:hover,
   &:active {

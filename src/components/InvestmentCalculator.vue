@@ -14,7 +14,6 @@
                     <div class="">
                         <label for="amt_currency" class="screen-reader-text">Currency</label>
                         <select id="amt_currency" name="amount_currency" @change="setCurrency">
-                            <option value>Currency</option>
                             <option
                                     :key="currency.abr + currency.rate"
                                     :value="currency.abbr"
@@ -33,7 +32,10 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="hint">
+                    <div class="hint"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="The maximum unit you are allowed to purchase">
                         Maximum units allowed
                         <i class="fa fa-question-circle"></i>
                     </div>
@@ -47,7 +49,11 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="hint">
+                    <div class="hint"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="Specify the number of units you wish to
+                                    purchase">
                         Unit(s) to purchase
                         <i class="fa fa-question-circle"></i>
 
@@ -59,12 +65,11 @@
                                 <label class="sr-only" for="unit">
                                     Enter the number of units you wish to
                                     buy</label>
-                                <input
-                                        id="unit"
-                                        name="unit"
-                                        placeholder="Enter the number of units you wish to buy"
-                                        type="text"
-                                        v-model="unit_value"
+                                <input id="unit"
+                                       name="unit"
+                                       placeholder="Enter the number of units you wish to buy"
+                                       type="text"
+                                       v-model="unit_value"
                                 />
                             </div>
                             <div @click="increaseValue" class=" trigger">+</div>
@@ -89,7 +94,10 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <div class="hint">Return on investment
+                    <div class="hint"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="Return on investment">Return on investment
                         <i class="fa fa-question-circle"></i>
                     </div>
                     <div class="value"><span class="unicode naira">{{calcRoi | numerate}}</span></div>
