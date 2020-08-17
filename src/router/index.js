@@ -74,6 +74,32 @@ const routes = [
     },
   },
   {
+    path: '/admin',
+    name: 'admin',
+    meta: {
+      requiresAuth: true,
+      title: "Agribloom - Admin"
+    },
+    component: () =>
+      import(
+            /* webpackChunkName: "account", webpackPrefetch: true */ "../pages/admin/Admin.vue"
+      ),
+    // children: [
+    //   {
+    //     path: "/admin/sign-in",
+    //     name: "admin-sign-in",
+    //     component: () =>
+    //       import(
+    //         /* webpackChunkName: "account", webpackPrefetch: true */ "../pages/admin/SignIn.vue"
+    //       ),
+    //     meta: {
+
+    //       title: "Admin Sign In"
+    //     },
+    //   },
+    // ]
+  },
+  {
     path: "/",
     component: () => import(/* webpackPrefetch: true */"../pages/Welcome.vue"),
     children: [
@@ -103,8 +129,8 @@ const routes = [
             {
               property: "og:description",
               content: "Africa’s most preferred supplier of fruits and vegetables to\n" +
-                  "                  retail outlet and\n" +
-                  "                  agro-processing companies.",
+                "                  retail outlet and\n" +
+                "                  agro-processing companies.",
             },
             /* Twitter tags */
             { name: "twitter:card", content: "summary" },
@@ -137,7 +163,7 @@ const routes = [
         name: "faq",
         component: () => import(/* webpackPrefetch: true */ "../pages/FAQ.vue"),
         meta: {
-          title:  `${process.env.VUE_APP_TITLE} - FAQ - Frequently asked questions`,
+          title: `${process.env.VUE_APP_TITLE} - FAQ - Frequently asked questions`,
           tags: [
             {
               name: "description",
@@ -421,6 +447,7 @@ const routes = [
     path: '/sitemap',
     redirect: '/sitemap.xml'
   },
+
   {
     path: "/404NotFound",
     name: "404NotFound",
@@ -445,6 +472,7 @@ const router = new VueRouter({
 
 /* function to run before each route is fulfilled */
 router.beforeEach((to, from, next) => {
+
   // This goes through the matched routes from last to first, finding the closest route with a title.
   // eg. if we have /some/deep/nested/route and /some, /deep, and /nested have titles, nested's will be chosen.
   const nearestWithTitle = to.matched
@@ -458,8 +486,15 @@ router.beforeEach((to, from, next) => {
     .reverse()
     .find((r) => r.meta && r.meta.tags);
 
+  // is route a child of admin.
+  // const adminChild = to.matched
+  //   .slice()
+  //   .reverse()
+  //   .find((r) => r.meta && r.meta.tags);
+
   // If a route with a title was found, set the document (page) title to that value.
-  if (nearestWithTitle) document.title = nearestWithTitle.meta.title;
+  if (nearestWithTitle)
+    document.title = nearestWithTitle.meta.title;
 
   // Remove any stale meta tags from the document using the key attribute we set below.
   Array.from(
@@ -467,29 +502,38 @@ router.beforeEach((to, from, next) => {
   ).map((el) => el.parentNode.removeChild(el));
 
   // Skip rendering meta tags if there are none.
-  if (!nearestWithMeta) return next();
+  if (nearestWithMeta) {
+    // Turn the meta tag definitions into actual elements in the head.
+    nearestWithMeta.meta.tags
+      .map((tagDef) => {
+        const tag = document.createElement("meta");
 
-  // Turn the meta tag definitions into actual elements in the head.
-  nearestWithMeta.meta.tags
-    .map((tagDef) => {
-      const tag = document.createElement("meta");
+        Object.keys(tagDef).forEach((key) => {
+          tag.setAttribute(key, tagDef[key]);
+        });
 
-      Object.keys(tagDef).forEach((key) => {
-        tag.setAttribute(key, tagDef[key]);
-      });
+        // We use this to track which meta tags we create, so we don't interfere with other ones.
+        tag.setAttribute("data-vue-router-controlled", "");
 
-      // We use this to track which meta tags we create, so we don't interfere with other ones.
-      tag.setAttribute("data-vue-router-controlled", "");
-
-      return tag;
-    })
-    // Add the meta tags to the document head.
-    .forEach((tag) => document.head.appendChild(tag));
+        return tag;
+      })
+      // Add the meta tags to the document head.
+      .forEach((tag) => document.head.appendChild(tag));
+  }
 
   /* Authentication routes handlers */
   if (to.matched.some((record) => record.meta.requiresAuth)) {
+    let admin = !!(
+      to.matched
+        .slice()
+        .reverse()
+        .find((r) => r.meta && r.meta.title)
+    )
+    console.time(auth)
+
     // Handles authenticated user routes
     if (localStorage.getItem("token") == null) {
+
       next({
         name: "sign-in",
         params: { nextUrl: to.fullPath },
@@ -511,5 +555,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
+console.timeEnd(auth)
 export default router;
