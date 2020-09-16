@@ -171,7 +171,7 @@ Vue.component(
 );*/
 Vue.component(
 	"investment-withdrawal",
-	require( "./components/admin/InvestmentWithdrawal.vue" ).default
+	require( "./components/admin/InvestmentReturnCard.vue" ).default
 );
 
 new Vue( {
