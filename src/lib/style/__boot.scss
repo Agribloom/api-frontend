@@ -1169,9 +1169,11 @@ p > {
 .bg-white {
   background: #FFFFFF;
 }
-.bg-gray{
+
+.bg-gray {
   background: #ececec;
 }
+
 .cursor {
   cursor: pointer;
 }
@@ -1709,13 +1711,12 @@ a.cbtn {
   }
   
   &.secondary {
-	border: 1px $secondary solid;
-	color: $gray-500;
-	background: #fff;
+	background: #f1f1f1;
+	color: $secondary;
+	border: 2px $secondary solid;
 	
 	&:hover {
-	  background: #f1f1f1;
-	  color: $secondary;
+	  
 	  box-shadow: inset 0 0 0 1px $gray-200, 0 0 0 2px $secondary;
 	}
   }

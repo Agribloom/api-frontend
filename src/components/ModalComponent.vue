@@ -1,6 +1,7 @@
 <template>
     <transition name="fade">
-        <div @keyup.esc="escapeKeyListener" class="modal" v-if="state">
+        <div @keyup.esc="escapeKeyListener"
+             class="modal" v-if="state">
             <div @click="modalClose" class="close">&times;</div>
             <div class="content-layout">
                 <slot></slot>
@@ -66,7 +67,7 @@ export default {
         position: fixed;
         justify-content: center;
         border: 2px solid $primary;
-        display: flex;
+        display: block;
         z-index: 5000;
 
         .close {

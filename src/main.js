@@ -174,6 +174,11 @@ Vue.component(
 	require( "./components/admin/InvestmentReturnCard.vue" ).default
 );
 
+Vue.component(
+	"farm-investor-listing",
+	require( "./components/admin/FarmInvestorListing.vue" ).default
+);
+
 new Vue( {
 	router,
 	store,

@@ -15,7 +15,7 @@
 
             <div class="intro p-3">
                 <strong>Active </strong>
-                <span>(0)</span>
+                <span>({{activeFarms.length}})</span>
             </div>
             <div class="account-card">
                 <div class="card-body">
@@ -30,7 +30,7 @@
 
             <div class="intro p-3">
                 <strong>Inactive </strong>
-                <span>(0)</span>
+                <span>({{ inactiveFarms.length }})</span>
             </div>
             <div class="account-card">
                 <div class="card-body">
@@ -46,13 +46,21 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex';
+
 	export default {
 		name: "InvestmentPage",
-      data(){
+		data() {
 			return {
 				loading: false
-            }
-      }
+			}
+		},
+		computed: {
+			...mapGetters( 'farm', {
+				activeFarms: 'pluralOpen',
+				inactiveFarms: 'pluralClosed',
+			} )
+		}
 	}
 </script>
 

@@ -72,7 +72,7 @@
                     </div>
                 </template>
                 <div v-else>
-                    <alert-item :messages="'Nothing found yet!'" :title="'Unfortunately!'"></alert-item>
+                    <alert-item messages="Nothing found :(" title="Empty Record"></alert-item>
                 </div>
             </div>
             <!--End-->

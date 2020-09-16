@@ -3,27 +3,41 @@
         <div class="alert-card">
             <div class="alert-card-content">
                 <h5>
-                    <strong class="new">New!</strong>
-                    Make a withdrawals
+                    Pay Investors
                 </h5>
-                <p class="hint">You can now pay your investors at once with just a click on a button</p>
+                <strong class="new">New!</strong>
+                <p class="hint">
+                    You can now pay your investors at once with just the click of a button</p>
             </div>
             <div class="alert-card-button">
-                <button class="cursor-pointer cbtn  m-0 primary">
+                <button @click.stop="confirmPayment" class="cursor-pointer cbtn  m-0 secondary">
                     Pay Investors
                 </button>
             </div>
         </div>
-		<div class="p-2">
-			<router-link :to="{name:'admin-users-manage'}">Manage your Investors</router-link>
-		</div>
+        <div class="list">
+            <router-link :to="{name:'admin-users-manage'}">Manage your Investors</router-link>
+        </div>
 
-	</div>
+        <modal-component ref="confirmPaymentModal">
+            <farm-investor-listing @done="closeModal"></farm-investor-listing>
+        </modal-component>
+    </div>
 </template>
 
 <script>
 	export default {
-		name: 'InvestmentWithdrawal'
+		name: 'InvestorPayment',
+		methods: {
+			confirmPayment() {
+				let modal = this.$refs['confirmPaymentModal']
+				modal.modalOpen();
+			},
+			closeModal() {
+				let modal = this.$refs['confirmPaymentModal']
+				modal.modalClose();
+			}
+		}
 	}
 </script>
 
@@ -47,12 +61,13 @@
 
             h5 {
                 font-size: 32px;
-				display: flex;
-				.new{
-					font-size: 18px;
-					align-items: center;
-					margin-right: 8px;
-				}
+                display: flex;
+
+                .new {
+                    font-size: 18px;
+                    align-items: center;
+                    margin-right: 8px;
+                }
             }
 
             flex: 1 1 70%;
@@ -73,6 +88,15 @@
             justify-content: flex-end;
             flex: auto;
             margin: 0 auto auto;
+        }
+    }
+
+    .list {
+        background: #d1f8a1;
+        padding: 8px 16px;
+
+        a {
+            text-decoration: underline;
         }
     }
 </style>
