@@ -19,8 +19,8 @@ const farm = {
         plural (state) {
             return state.farms.results || []
         },
-        pluralOpen (state, getters) {
-            const plural = getters.plural
+            pluralOpen (state, getters) {
+            const plural = getters.plural;
             return plural.length
                 ? plural.filter((farm) => farm.status === 'open')
                 : []

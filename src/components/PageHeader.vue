@@ -20,8 +20,8 @@
                 <router-link :to="{name: 'home'}">Home</router-link>
               </li>
               <li v-else>
-                <router-link :to="{name: 'dashboard'}" class="cursor-pointer text-bold">
-                  <i class="la la-dashboard"></i> Dashboard
+                <router-link :to="{name: 'account-dashboard'}" class="cursor-pointer text-bold">
+                  Dashboard
                 </router-link>
               </li>
               <li @click="closeMobileMenu">
@@ -114,7 +114,7 @@
               <router-link :to="{name: 'home'}">Home</router-link>
             </li>
             <li v-else>
-              <router-link :to="{name: 'dashboard'}" class="cursor-pointer text-bold">Dashboard</router-link>
+              <router-link :to="{name: 'account-dashboard'}" class="cursor-pointer text-bold">Dashboard</router-link>
             </li>
             <li>
               <router-link :to="{name: 'farms'}">Our Farms</router-link>

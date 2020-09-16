@@ -84,7 +84,7 @@
             left: 0;
 
             &:after {
-                background-color: rgba($secondary, 0.58984);
+                background-color: rgba($secondary, 0.758984);
                 content: " ";
                 height: 100%;
                 left: 0;

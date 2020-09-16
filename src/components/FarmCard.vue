@@ -238,12 +238,14 @@
                     display: flex;
                     font-size: 12px;
                     margin-left: 0;
-                    line-height: calc(12 * 1.618);
+                    line-height: calc(12px * 1.618);
                     width: 100%;
-
+                    flex-wrap: wrap;
                     .meta-item {
-                        display: inline-block;
-                        margin-bottom: 0;
+                        display: inline-flex;
+                        margin-bottom: 8px;
+                        margin-right: 12px;
+                        align-items: center;
                         color: rgb(118, 138, 118);
                     }
                 }

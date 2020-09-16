@@ -1,5 +1,5 @@
 <template>
-    <div :class="classes">
+    <div :class="[classes, 'nomsg-spinner']">
         <pulse-loader :color="color" :loading="loading"/>
     </div>
 </template>
@@ -27,3 +27,9 @@ export default {
     name: 'MessageLessSpinner'
 }
 </script>
+
+<style scoped lang="scss">
+    .nomsg-spinner{
+        margin: 8px 16px;
+    }
+</style>

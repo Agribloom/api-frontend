@@ -11,6 +11,7 @@
                 </div>
             </alert-item>
         </div>
+        <!--Data loaded with no error-->
         <template v-else>
             <!--Data-->
             <!--Filter card-->
@@ -43,7 +44,9 @@
                         <div class="px-2" v-else-if="carousel">
                             <div v-swiper="swiperOption" class="swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide" :key="farm.id" v-for="farm in parseFarm">
+                                    <div class="swiper-slide"
+                                         :key="farm.id"
+                                         v-for="farm in parseFarm">
                                         <farm-card :data="farm"/>
                                     </div>
                                 </div>
@@ -190,8 +193,8 @@
             },
             ...mapGetters({
                 all: "farm/plural",
-                open: "farm/pluralOpen",
-                close: "farm/pluralClosed",
+                active: "farm/pluralOpen",
+                inactive: "farm/pluralClosed",
                 sold: "farm/pluralSold",
                 insured: "farm/pluralInsured",
                 errors: "farm/pluralError",
@@ -200,12 +203,12 @@
             }),
             parseFarm: function () {
                 let result = [];
-                let allClosed = this.all.filter((farm) => farm.status == "close");
-                let allOpen = this.all.filter((farm) => farm.status == "open");
-                let theRest = this.all.filter(
+                let activeFarms = this.all.filter(farm=>farm.status === 'open');
+	            let inactiveFarms = this.all.filter(farm=>farm.status === 'close');
+	            let theRest = this.all.filter(
                     (farm) => !(farm.status == "open" || farm.status == "close")
                 );
-                let allFarms = [...allOpen, ...allClosed, ...theRest];
+                let allFarms = [...activeFarms, ...inactiveFarms, ...theRest];
                 /* If there is a search query */
                 if (this.filterOption.search && this.filterOption.search.length) {
                     result = allFarms.filter((row) => {
@@ -224,10 +227,10 @@
                 if (this.filterOption.status != null) {
                     switch (this.filterOption.status) {
                         case "open":
-                            result = this.open;
+                            result = activeFarms;
                             break;
                         case "close":
-                            result = this.close;
+                            result = inactiveFarms;
                             break;
                         case "sold_out":
                             result = this.sold;
@@ -235,7 +238,7 @@
                     }
                 }
 
-                /*Filter for insured*/
+	            /*Filter for insured*/
                 if (this.filterOption.insured != null) {
                     result = result.filter(
                         (farm) => farm.insured === this.filterOption.insured
