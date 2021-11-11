@@ -10,9 +10,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="loading">
-            <nomsg-spinner/>
-        </div>
+        <nomsg-spinner v-if="loading"/>
         <div v-else>
             <div class>
                 <h3 class="intro right">
@@ -31,7 +29,7 @@
                     <user-card/>
                 </div>
                 <div class="col-md-9 p-0 px-lg-3">
-                  <investment-summary title/>
+                    <investment-summary title/>
                 </div>
             </div>
             <div class="d-flex pb-2 justify-content-end">
@@ -54,17 +52,17 @@
 </template>
 
 <script>
-    import mixin from '@/mixin'
-    import {mapGetters} from 'vuex'
+	import mixin from '@/mixin'
+	import { mapGetters } from 'vuex'
 
-    export default {
-        name: 'Account-Dashboard',
-        mixins: [mixin],
-        computed: {
-            ...mapGetters('user', {
-                user: 'data',
-                loading: 'loading'
-            })
-        }
-    }
+	export default {
+		name: 'Account-Dashboard',
+		mixins: [ mixin ],
+		computed: {
+			...mapGetters( 'user', {
+				user: 'data',
+				loading: 'loading'
+			} )
+		}
+	}
 </script>

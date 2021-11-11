@@ -37,7 +37,7 @@ export default {
       return {
         title: "Our Careers",
         breadcrumbs: this.breadcrumbs,
-        banner: "/assets/images/about/vegetables.jpg"
+        banner: "/assets/images/career/banner.jpg"
       };
     }
   }

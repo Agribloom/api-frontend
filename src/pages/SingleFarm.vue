@@ -59,6 +59,9 @@
                                 <div class="row mx-auto ">
                                     <div class="col-lg-8 col-12 p-0" style="border-bottom: 1px solid #ececec">
                                         <div class="bg-white p-2 ">
+                                            <div v-if="admin">
+                                                <investment-withdrawal/>
+                                            </div>
                                             <div class="post-thumb style-2">
                                                 <div class="post-thumb-content">
                                                     <FarmSummaryCard :summary="farmSummary"/>
@@ -122,87 +125,88 @@
 </template>
 
 <script>
-    import {Tab, Tabs} from "vue-tabs-component";
-    import FarmSummaryCard from "../components/FarmSummaryCard";
-    import mixin from "@/mixin";
-    import {mapGetters} from "vuex";
+	import { Tab, Tabs } from "vue-tabs-component";
+	import FarmSummaryCard from "../components/FarmSummaryCard";
+	import mixin from "@/mixin";
+	import { mapGetters } from "vuex";
 
-    export default {
-        components: {
-            FarmSummaryCard,
-            Tabs,
-            Tab
-        },
-        mixins: [mixin],
-        name: "SingleFarm",
-        data: function () {
-            return {
-                farmID: this.$route.params.id,
-                url: "farms/" + this.$route.params.id,
-                farm: null
-            };
-        },
-        mounted: function () {
-            this.fetchFarm();
-        },
-        methods: {
-            /* loadFarm: function () {
+	export default {
+		components: {
+			FarmSummaryCard,
+			Tabs,
+			Tab
+		},
+		mixins: [ mixin ],
+		name: "SingleFarm",
+		data: function () {
+			return {
+				farmID: this.$route.params.id,
+				url: "farms/" + this.$route.params.id,
+				farm: null
+			};
+		},
+		mounted: function () {
+			this.fetchFarm();
+		},
+		methods: {
+			/* loadFarm: function () {
                         this.errors = []
                         this.$store.dispatch('fetchFarmById', this.$route.params.id)
                         this.$store.dispatch('fetchUser')
                     }, */
 
-            fetchFarm() {
-                this.$store.commit("farm/SET_LOADING", true);
-                this.farm = this.$store.getters["farm/singularById"](this.farmID);
-                if (!this.farm.length) {
-                    window.axios
-                        .get(`farms/${this.farmID}`)
-                        .then(
-                            response => {
-                                this.farm = response.data;
-                            },
-                            error => {
-                                this.$store.commit("farm/SET_ERROR", error);
-                            }
-                        )
-                        .finally(() => {
-                            this.$store.commit("farm/SET_LOADING", false);
-                        });
-                }
-            },
-            updateFarm(payload) {
-                this.farm.unit_in_stock = this.farm.unit_in_stock - payload.unit_bought;
-                if (!this.farm.unit_in_stock) {
-                    this.farm.status = "sold out";
-                }
-                this.farm.raised = Number(this.farm.raised) + payload.amount_paid;
-                let message = "Payment has been completed successfully";
-                this.toastrAdd("Success", message, "success");
-            }
-        },
-        computed: {
-            ...mapGetters({
-                loading: "farm/loading",
-                errors: "farm/pluralError",
-                hasError: "farm/hasError"
-            }),
-            breadcrumb() {
-                return [
-                    {id: 0, name: "Home", classes: "", location: "/"},
-                    {id: 1, name: "Farms", classes: "", location: "/farms"},
-                    {
-                        id: 1,
-                        name: this.farm ? this.farm.name : "",
-                        classes: "active",
-                        location: ""
-                    }
-                ];
-            },
-            hasData() {
-                return this.farm;
-            },
-            /* isLoading () {
+			fetchFarm() {
+				this.$store.commit( "farm/SET_LOADING", true );
+				this.farm = this.$store.getters["farm/singularById"]( this.farmID );
+				if ( !this.farm.length ) {
+					window.axios
+						.get( `farms/${ this.farmID }` )
+						.then(
+							response => {
+								this.farm = response.data;
+							},
+							error => {
+								this.$store.commit( "farm/SET_ERROR", error );
+							}
+						)
+						.finally( () => {
+							this.$store.commit( "farm/SET_LOADING", false );
+						} );
+				}
+			},
+			updateFarm(payload) {
+				this.farm.unit_in_stock = this.farm.unit_in_stock - payload.unit_bought;
+				if ( !this.farm.unit_in_stock ) {
+					this.farm.status = "sold out";
+				}
+				this.farm.raised = Number( this.farm.raised ) + payload.amount_paid;
+				let message = "Payment has been completed successfully";
+				this.toastrAdd( "Success", message, "success" );
+			}
+		},
+		computed: {
+			...mapGetters( {
+				loading: "farm/loading",
+				errors: "farm/pluralError",
+				hasError: "farm/hasError",
+				admin: "admin/auth"
+			} ),
+			breadcrumb() {
+				return [
+					{ id: 0, name: "Home", classes: "", location: "/" },
+					{ id: 1, name: "Farms", classes: "", location: "/farms" },
+					{
+						id: 1,
+						name: this.farm ? this.farm.name : "",
+						classes: "active",
+						location: ""
+					}
+				];
+			},
+			hasData() {
+				return this.farm;
+			},
+			/* isLoading () {
                          let result = []
                          try {
                              // Filter farm by id
@@ -217,67 +221,67 @@
                          this.setFarm(result)
                          return this.$store.getters.isDataLoading
                      }, */
-            isOpen() {
-                return this.farm ? this.farm.status === "open" : null;
-            },
-            /**
-             * @return String
-             */
-            NAME() {
-                return this.farm ? this.farm.name : "";
-            },
-            /**
-             * @return {string}
-             */ LOCATION() {
-                return this.farm ? this.farm.location : "";
-            },
-            /**
-             * @return {string}
-             */
-            STOCK() {
-                return this.farm ? `${this.farm.unit_in_stock} / ${this.farm.units}` : "";
-            },
-            ROI() {
-                return this.farm ? this.farm.roi : 0;
-            },
-            /**
-             * @return {number}
-             */
-            DURATION() {
-                return this.farm ? this.farm.duration : 0;
-            },
-            /**
-             * @return {string}
-             */
-            DESCRIPTION() {
-                return this.farm ? this.farm.description : "";
-            },
-            headingDetails: function () {
-                return {
-                    title: this.farm ? this.farm.name : "",
-                    breadcrumbs: this.breadcrumb,
-                    banner: this.farm ? this.farm.image : ""
-                };
-            },
-            calculatorParams() {
-                return {
-                    farm: this.farm.id,
-                    unit_price: this.farm ? this.farm.price_per_unit : 0,
-                    roi: (this.farm ? this.farm.roi : 0) / 100,
-                    allowedUnits: this.farm.unit_in_stock,
-                    duration: this.farm ? this.farm.duration : ""
-                };
-            },
-            farmSummary() {
-                return {
-                    raised: this.farm ? this.farm.raised : 0,
-                    target: this.farm ? this.farm.target : 0,
-                    status: this.farm ? this.farm.status : 0,
-                    roi: this.farm ? this.farm.roi : 0
-                };
-            }
-        }
-    };
+			isOpen() {
+				return this.farm ? this.farm.status === "open" : null;
+			},
+			/**
+			 * @return String
+			 */
+			NAME() {
+				return this.farm ? this.farm.name : "";
+			},
+			/**
+			 * @return {string}
+			 */ LOCATION() {
+				return this.farm ? this.farm.location : "";
+			},
+			/**
+			 * @return {string}
+			 */
+			STOCK() {
+				return this.farm ? `${ this.farm.unit_in_stock } / ${ this.farm.units }` : "";
+			},
+			ROI() {
+				return this.farm ? this.farm.roi : 0;
+			},
+			/**
+			 * @return {number}
+			 */
+			DURATION() {
+				return this.farm ? this.farm.duration : 0;
+			},
+			/**
+			 * @return {string}
+			 */
+			DESCRIPTION() {
+				return this.farm ? this.farm.description : "";
+			},
+			headingDetails: function () {
+				return {
+					title: this.farm ? this.farm.name : "",
+					breadcrumbs: this.breadcrumb,
+					banner: this.farm ? this.farm.image : ""
+				};
+			},
+			calculatorParams() {
+				return {
+					farm: this.farm.id,
+					unit_price: this.farm ? this.farm.price_per_unit : 0,
+					roi: ( this.farm ? this.farm.roi : 0 ) / 100,
+					allowedUnits: this.farm.unit_in_stock,
+					duration: this.farm ? this.farm.duration : ""
+				};
+			},
+			farmSummary() {
+				return {
+					raised: this.farm ? this.farm.raised : 0,
+					target: this.farm ? this.farm.target : 0,
+					status: this.farm ? this.farm.status : 0,
+					roi: this.farm ? this.farm.roi : 0
+				};
+			}
+		}
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -1,12 +1,12 @@
 <template>
     <div :class="classes" id="account">
-        <account-header
-                @refreshData="fetchData"
-                @signOut="signOut"
-                @toggleSidebar="toggleSidebar"
-                @toggleSidebarAlt="toggleSidebarAlt"
+        <account-header @refreshData="fetchData"
+                        @signOut="signOut"
+                        @toggleSidebar="toggleSidebar"
+                        @toggleSidebarAlt="toggleSidebarAlt"
         />
-        <account-sidebar :links="sidebarNavigationLinks"        />
+        <account-sidebar userGroup="admin" :links="sidebarNavigationLinks"/>
+        <!--MAIN-->
         <main>
             <div class="account-body-wrapper offset anim">
                 <div class="container p-0" v-if="hasGlobalErrors">
@@ -30,6 +30,7 @@
             </div>
         </main>
     </div>
+
 </template>
 
 <script>
@@ -43,24 +44,24 @@
 				sidebarAlt: false,
 				sidebarNavigationLinks: [
 					{
-						name: 'account-dashboard',
+						name: 'admin-dashboard',
 						icon: 'la la-dashboard',
-						title: 'activity log'
+						title: 'dashboard'
 					},
 					{
-						name: 'account-investment',
+						name: 'admin-investment',
 						icon: 'la la-piggy-bank',
-						title: 'Investments'
+						title: 'investments'
 					},
 					{
-						name: 'account-transaction',
+						name: 'admin-transaction',
 						icon: 'la la-exchange-alt',
 						title: 'transactions'
 					},
 					{
-						name: 'account-profile',
-						icon: 'la la-user-cog',
-						title: 'profile'
+						name: 'admin-users-manage',
+						icon: 'la la-users',
+						title: 'users'
 					}
 				]
 			};
@@ -89,19 +90,19 @@
 			},
 		},
 		computed: {
-			...mapGetters( "user", {
+			...mapGetters( "admin", {
 				user: "data",
 				auth: "auth",
 			} ),
 			...mapGetters( {
 				state: "getState",
 			} ),
-			globalErrors() {
-				return this.$store.getters.getErrors;
-			},
-			hasGlobalErrors() {
-				return this.globalErrors.length;
-			},
+          globalErrors() {
+            return this.$store.getters.getErrors;
+          },
+          hasGlobalErrors() {
+            return this.globalErrors.length;
+          },
 			classes() {
 				return {
 					fullscreen: this.sidebar,

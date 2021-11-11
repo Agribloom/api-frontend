@@ -31,7 +31,7 @@
               <strong>{{user.username}}</strong>
             </h3>
           </div>
-          <!-- <investment-withdrawal/> -->
+          <!--  -->
           <investment-summary />
           <br>
           <investment-listing />
